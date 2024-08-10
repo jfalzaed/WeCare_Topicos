@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contact</title>
+    {% load static %}
+</head>
+<body>
+    <h1>Emergency Contact</h1>
+    <p>Click on the buttons below to call the emergency services.</p>
+
+    <h2>Metal health</h2>
+    <button type="button" onclick="window.location.href='tel:123';">Call 123 (Emergencias)</button>
+    <button type="button" onclick="window.location.href='tel:015620700';">Call Poison Control (Control de Intoxicaciones)</button>
+    <button type="button" onclick="window.location.href='tel:106';">Call Suicide Hotline (Línea de Prevención del Suicidio)</button>
+
+    <h2>HealthCare</h2>
+    <button type="button" onclick="window.location.href='tel:106';">Call Crisis Helpline (Línea de Ayuda en Crisis)</button>
+    <button type="button" onclick="window.location.href='tel:192';">Call Substance Abuse Helpline (Línea de Abuso de Sustancias)</button>
+    <button type="button" onclick="window.location.href='tel:155';">Call Domestic Violence Helpline (Línea de Violencia Doméstica)</button>
+
+    <h2>Other Services</h2>
+    <button type="button" onclick="window.location.href='tel:123';">Call Non-Emergency Police (Policía No Emergencias)</button>
+    <button type="button" onclick="window.location.href='tel:123';">Call Fire Department (Cuerpo de Bomberos)</button>
+    <button type="button" onclick="window.location.href='tel:123';">Call Ambulance (Ambulancia)</button>
+    
+    <!-- Acá se incluye el archivo Javascript -->
+    <script src="{% static 'js/script.js' %}" defer></script>
+</body>
+</html>
