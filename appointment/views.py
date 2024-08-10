@@ -4,9 +4,6 @@ from .forms import AppointmentForm
 
 # Create your views here.
 
-def home(request):
-    return HttpResponse(request, 'This is the page home')
-
 def form(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
