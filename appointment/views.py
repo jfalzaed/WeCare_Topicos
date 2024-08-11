@@ -4,6 +4,7 @@ from .forms import AppointmentForm
 
 # Create your views here.
 
+#Function to read the form and save the data in the database
 def form(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
@@ -15,5 +16,6 @@ def form(request):
     return render(request, 'fill_appointment.html', {'form': form})
 
 
+#function to render the success page after the form is filled
 def success_form(request):
     return render(request, 'success_form.html')

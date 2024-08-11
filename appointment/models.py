@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+#Model to store the appointment details
 class Appointment(models.Model):
     patient_name = models.CharField(max_length=100)
     patient_email = models.EmailField()

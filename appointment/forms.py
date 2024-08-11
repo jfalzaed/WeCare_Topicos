@@ -1,6 +1,7 @@
 from django import forms
 from .models import Appointment
 
+#Form to take the appointment details
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
