@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from emergency import views as emergency_views
 from appointment import views as appointment_views
 from users import views as users_views
@@ -26,4 +26,5 @@ urlpatterns = [
     path('fillAppointment/', appointment_views.form, name='fill_appointment'),
     path('appointmentFiled/', appointment_views.success_form, name='success_form'),
     path('emergency/', emergency_views.emergency),
+    path('', include('Dm.urls'))
     ]
