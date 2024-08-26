@@ -20,3 +20,5 @@ Finalmente, puedes ejecutar el servidor de desarrollo de Django con el siguiente
 python manage.py runserver
 
 Luego, abre tu navegador web y ve a http://127.0.0.1:8000 para ver la aplicación en funcionamiento.
+
+Adicional, para la verificación del chat, debes acceder al la vista de administrador http://127.0.0.1:8000/admin/ Luego de iniciar sesión con un usuario, debes pegar la siguiente ruta http://127.0.0.1:8000/ms/nombre y en "nombre" poner el nombre de la persona con la que desea iniciar o continuar una conversación.
