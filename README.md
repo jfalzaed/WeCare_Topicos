@@ -4,11 +4,17 @@
 - Verifica que tu versión de python sea 3.8 o superior con el siguiente comando:
 ```bash
 python --version
+```
 or
+```bash
 python -V
 ```
-- 
-- pip (la herramienta de gestión de paquetes de Python)
+
+- Verifica que cuentes con pip, la herramienta de gestión de paquetes de Python, con el siguiente comando:
+```bash
+pip --version
+```
+
 - Git
 
 ### Clonar el Repositorio
