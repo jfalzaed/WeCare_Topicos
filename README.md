@@ -1,7 +1,13 @@
 # WeCare
 ## Requisitos
 
-- Python 3.8 o superior
+- Verifica que tu versión de python sea 3.8 o superior con el siguiente comando:
+```bash
+python --version
+or
+python -V
+```
+- 
 - pip (la herramienta de gestión de paquetes de Python)
 - Git
 
@@ -11,8 +17,6 @@ Puedes clonar este repositorio utilizando el siguiente comando:
 ```bash
 git clone https://github.com/Salome-Serna-R/WeCare.git
 ```
-
-
 
 Luego de clonarlo se deben aplicar las migraciones iniciales para configurar la base de datos y esto se hace a través del siguiente comando en la terminal ubicados en la carpeta donde se encuentra clonado el proyecto
 python manage.py migrate
