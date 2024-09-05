@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import AppointmentForm
+from .forms import AppointmentForm, ReminderForm
 
 # Create your views here.
 
@@ -19,3 +19,15 @@ def form(request):
 #function to render the success page after the form is filled
 def success_form(request):
     return render(request, 'success_form.html')
+
+def create_reminder(request):
+    """if request.method == 'POST':
+        form = ReminderForm(request.POST)
+        if form.is_valid():
+            reminder = form.save(commit=False)
+            reminder.user = request.user
+            reminder.save()
+            return redirect('reminder_list')  # Redirige a la lista de recordatorios
+    else:
+        form = ReminderForm()"""
+    return render(request, 'create_reminder.html', {'form': form})
