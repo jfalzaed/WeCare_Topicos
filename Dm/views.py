@@ -37,10 +37,10 @@ class CanalFormMixin(FormMixin):
 
         form = self.get_form()
         if form.is_valid():
-            canal = self.get_object()  # Aquí obtenemos la instancia del canal directamente
+            canal = self.get_object()  # Obtenemos directamente la instancia del canal
             usuario = self.request.user 
             mensaje = form.cleaned_data.get("mensaje")
-            canal_obj = CanalMensaje.objects.create(canal=canal, usuario=usuario, texto=mensaje)
+            canal_obj = CanalMensaje.objects.create(canal=canal, usuario=usuario, texto=mensaje)  # Aquí se pasa la instancia correcta
 
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 return JsonResponse({
@@ -54,6 +54,7 @@ class CanalFormMixin(FormMixin):
                 return JsonResponse({"Error": form.errors}, status=400)
 
             return super().form_invalid(form)
+
 
 
 class CanalDetailView(LoginRequiredMixin, CanalFormMixin, DetailView):

@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block contenedor %}
-    <h3>Identificador del canal: {{ object.id }}</h3>
-    <h1>Mensajes del canal</h1>
+    <h3>Channel Identifier: {{ object.id }}</h3>
+    <h1>Channel Message</h1>
 
     <div id="contenedor_ms">
         {% for mensaje in object.canalmensaje_set.all %}
             {% if request.user == mensaje.usuario %}
                 <p>
                     <strong>{{ mensaje.texto }}</strong>
-                    <span>Lo enviaste tú</span>
+                    <span>You sent the message</span>
                 </p>
             {% else %}
                 <p>
@@ -20,7 +20,7 @@
         {% endfor %}
     </div>
 
-    <h1>Usuarios del canal</h1>
+    <h1>Channel Users</h1>
     {% for usuarios in object.canalusuario_set.all %}
         <p>{{ usuarios.usuario }}</p>
     {% endfor %}
@@ -28,7 +28,7 @@
     <form id="form_submit" action="{{ request.path }}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Enviar</button>
+        <button type="submit">Send</button>
     </form>
 
     <script>
