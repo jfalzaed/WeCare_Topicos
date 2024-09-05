@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'appointment',
     'emergency',
     'users',
-    'Dm',
 ]
 
 MIDDLEWARE = [
