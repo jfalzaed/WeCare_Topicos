@@ -1,5 +1,6 @@
 from django import forms
-from .models import Appointment
+from .models import Appointment, Reminder
+
 
 #Form to take the appointment details
 class AppointmentForm(forms.ModelForm):
