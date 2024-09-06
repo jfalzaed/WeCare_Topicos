@@ -22,13 +22,14 @@ def form(request):
 def success_form(request):
     return render(request, 'success_form.html')
 
+
+#function to create a reminder
 def create_reminder(request):
     if request.method == 'POST':
         form = ReminderForm(request.POST)
         if form.is_valid():
             reminder = form.save(commit=False)
             reminder.save()
-            # Replace deprecated request.is_ajax() with request.headers check
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 return JsonResponse({'success': True})
             return redirect('create_reminder')

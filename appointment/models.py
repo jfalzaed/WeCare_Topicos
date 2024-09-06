@@ -25,7 +25,8 @@ class Appointment(models.Model):
 
     def __str__(self):
         return self.patient_name
-    
+ 
+#Model to store the reminder details    
 class Reminder(models.Model):
     name = models.CharField(max_length=100, default="Reminder")
     reminder_date = models.DateField()

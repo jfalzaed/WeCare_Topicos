@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- Estilos y scripts de Flatpickr -->
+<!-- Styles for Flatpickr -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -12,30 +12,37 @@
     <button type="submit">Save Reminder</button>
 </form>
 
-<!-- Mensaje de éxito (oculto por defecto) -->
+<!-- Succes message (hidden by default) -->
 <div id="successMessage" style="display: none;">
-    <h2>Reminder Created Successfully!</h2>
-    <p>Your reminder has been saved.</p>
-    <a href="/">Go to Home</a>
+    <div class="alert alert-success">
+        <div class = "container">
+            <h2>Reminder Created Successfully!</h2>
+            <p>Your reminder has been saved.</p>
+            <a href="/">Go to Home</a>
+            <br>
+            <a href="{% url 'create_reminder' %}">Create another reminder</a>
+        </div>
+    </div>    
 </div>
 
-<!-- Script para Flatpickr y AJAX -->
+<!-- Script for Flatpickr y AJAX -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Inicialización de Flatpickr
+        // Initialize Flatpickr
         flatpickr("input[name='reminder_date']", {
             enableTime: true,
             dateFormat: "Y-m-d H:i",
+            minDate: "today",  // With this option, you can't select a date before today
         });
 
-        // Manejo del formulario con AJAX
+       
         document.getElementById('reminderForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar que el formulario se envíe de manera tradicional
+            event.preventDefault(); // Prevent the form from submitting normally
 
             var form = this;
             var formData = new FormData(form);
             
-            // Enviar datos con fetch
+            // Send the form data via AJAX
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
@@ -44,7 +51,7 @@
                 }
             }).then(response => response.json()).then(data => {
                 if (data.success) {
-                    // Mostrar mensaje de éxito y ocultar el formulario
+                    // Show success message and hide form
                     document.getElementById('successMessage').style.display = 'block';
                     form.style.display = 'none';
                 } else {
