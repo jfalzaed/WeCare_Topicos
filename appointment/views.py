@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import AppointmentForm, ReminderForm
+from .models import Reminder
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -21,13 +23,21 @@ def success_form(request):
     return render(request, 'success_form.html')
 
 def create_reminder(request):
-    """if request.method == 'POST':
+    if request.method == 'POST':
         form = ReminderForm(request.POST)
         if form.is_valid():
             reminder = form.save(commit=False)
-            reminder.user = request.user
             reminder.save()
-            return redirect('reminder_list')  # Redirige a la lista de recordatorios
+            # Replace deprecated request.is_ajax() with request.headers check
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                return JsonResponse({'success': True})
+            return redirect('create_reminder')
     else:
-        form = ReminderForm()"""
+        form = ReminderForm()
     return render(request, 'create_reminder.html', {'form': form})
+
+
+"""@login_required
+def reminder_list(request):
+    reminders = Reminder.objects.filter(user=request.user)
+    return render(request, 'reminder_list.html', {'reminders': reminders})"""

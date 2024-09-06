@@ -1,10 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
+
+<!-- Estilos y scripts de Flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 <h2>Create a Reminder</h2>
-<form method="POST">
+<form id="reminderForm" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save Reminder</button>
 </form>
+
+<!-- Mensaje de éxito (oculto por defecto) -->
+<div id="successMessage" style="display: none;">
+    <h2>Reminder Created Successfully!</h2>
+    <p>Your reminder has been saved.</p>
+    <a href="/">Go to Home</a>
+</div>
+
+<!-- Script para Flatpickr y AJAX -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicialización de Flatpickr
+        flatpickr("input[name='reminder_date']", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+
+        // Manejo del formulario con AJAX
+        document.getElementById('reminderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe de manera tradicional
+
+            var form = this;
+            var formData = new FormData(form);
+            
+            // Enviar datos con fetch
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            }).then(response => response.json()).then(data => {
+                if (data.success) {
+                    // Mostrar mensaje de éxito y ocultar el formulario
+                    document.getElementById('successMessage').style.display = 'block';
+                    form.style.display = 'none';
+                } else {
+                    alert('There was an error creating the reminder.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('There was an error creating the reminder.');
+            });
+        });
+    });
+</script>
+
 {% endblock content %}
 
