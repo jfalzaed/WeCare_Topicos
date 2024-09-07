@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils import timezone
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -28,3 +31,15 @@ class Appointment(models.Model):
     
     def __str__(self):
         return self.patient_name
+ 
+#Model to store the reminder details    
+class Reminder(models.Model):
+    name = models.CharField(max_length=100, default="Reminder")
+    reminder_date = models.DateField()
+    reminder_title = models.CharField(max_length=100, default="Reminder")
+    reminder_message = models.CharField(max_length=200)
+    reminder_email = models.EmailField()
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.reminder_title

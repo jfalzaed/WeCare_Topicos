@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Styles for Flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<h2>Create a Reminder</h2>
+<form id="reminderForm" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Reminder</button>
+</form>
+
+<!-- Succes message (hidden by default) -->
+<div id="successMessage" style="display: none;">
+    <div class="alert alert-success">
+        <div class = "container">
+            <h2>Reminder Created Successfully!</h2>
+            <p>Your reminder has been saved.</p>
+            <a href="/">Go to Home</a>
+            <br>
+            <a href="{% url 'create_reminder' %}">Create another reminder</a>
+        </div>
+    </div>    
+</div>
+
+<!-- Script for Flatpickr y AJAX -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Flatpickr
+        flatpickr("input[name='reminder_date']", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            minDate: "today",  // With this option, you can't select a date before today
+        });
+
+       
+        document.getElementById('reminderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            var form = this;
+            var formData = new FormData(form);
+            
+            // Send the form data via AJAX
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            }).then(response => response.json()).then(data => {
+                if (data.success) {
+                    // Show success message and hide form
+                    document.getElementById('successMessage').style.display = 'block';
+                    form.style.display = 'none';
+                } else {
+                    alert('There was an error creating the reminder.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('There was an error creating the reminder.');
+            });
+        });
+    });
+</script>
+
+{% endblock content %}
+

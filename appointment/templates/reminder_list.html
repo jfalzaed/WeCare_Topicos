@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Reminders</h2>
+<ul>
+    {% for reminder in reminders %}
+        <li>{{ reminder.title }} - {{ reminder.reminder_date }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
