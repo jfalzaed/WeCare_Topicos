@@ -27,5 +27,5 @@ urlpatterns = [
     path('appointmentFiled/', appointment_views.success_form, name='success_form'),
     path('emergency/', emergency_views.emergency, name='emergency'),
     path('reminder/', appointment_views.create_reminder, name='create_reminder'),
-    #path('reminder_list/', appointment_views.reminder_list, name='reminder_list'),
+    path('reminder_list/', appointment_views.reminder_list, name='reminder_list'),
 ]
