@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 class Comentario(models.Model):
     titulo = models.CharField(max_length=255)
     texto = models.TextField()
-    imagen = models.ImageField(upload_to='recetas_images/', blank=True, null=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
