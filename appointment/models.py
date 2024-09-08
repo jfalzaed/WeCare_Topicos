@@ -34,7 +34,6 @@ class Appointment(models.Model):
  
 #Model to store the reminder details    
 class Reminder(models.Model):
-    name = models.CharField(max_length=100, default="Reminder")
     reminder_date = models.DateField()
     reminder_title = models.CharField(max_length=100, default="Reminder")
     reminder_message = models.CharField(max_length=200)
