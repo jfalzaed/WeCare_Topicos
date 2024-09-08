@@ -43,4 +43,7 @@ urlpatterns = [
     path('comentario/<int:comentario_id>/respuesta/crear/', Forum_views.respuesta_create, name='crear-respuesta'),  # Crear respuesta
     path('respuesta/eliminar/<int:id>/', Forum_views.respuesta_delete, name='eliminar-respuesta'),  # Eliminar respuesta
     path('buscar/', Forum_views.buscar_comentario, name='buscar-comentario'),  # Buscar comentario
+    path('reminder_list/', appointment_views.reminder_list, name='reminder_list'),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
