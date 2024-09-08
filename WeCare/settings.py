@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'appointment',
     'emergency',
-    'users',
+    'Account',
     'Forum',
 ]
 

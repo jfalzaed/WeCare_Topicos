@@ -9,7 +9,18 @@
 <form id="reminderForm" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+    {% if form.errors %}
+        <div class="errors">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field }}: {{ errors|striptags }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <br>
     <button type="submit">Save Reminder</button>
+    
 </form>
 
 <!-- Succes message (hidden by default) -->

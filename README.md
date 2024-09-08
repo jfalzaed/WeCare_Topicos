@@ -1,7 +1,7 @@
 # WeCare
-## Requisitos
+## Requirements
 
-- Verifica que tu versión de python sea 3.8 o superior con el siguiente comando:
+- Ensure that your Python version is 3.8 or higher by running the following command:
 ```bash
 python --version
 ```
@@ -10,31 +10,38 @@ or
 python -V
 ```
 
-- Verifica que cuentes con pip, la herramienta de gestión de paquetes de Python, con el siguiente comando:
+- Verify that you have pip, the Python package management tool, installed by running:
 ```bash
 pip --version
 ```
 
-- Git
+- Ensure that Git is installed on your system for version control. You can verify this by running:
+```bash
+git --version
+```
 
-### Clonar el Repositorio
-
-Puedes clonar este repositorio utilizando el siguiente comando:
+### Cloning the Repository
+You can clone this repository using the following command:
 ```bash
 git clone https://github.com/Salome-Serna-R/WeCare.git
 ```
-O simplemente descargando el paquete .zip
+Or you can download the .zip package directly from the GitHub repository.
 
-Luego de clonarlo se deben aplicar las migraciones iniciales para configurar la base de datos y esto se hace a través del siguiente comando en la terminal ubicados en la carpeta donde se encuentra clonado el proyecto
+### Installing Dependencies
+After cloning the repository, you need to install the required dependencies listed in the requirements.txt file. This file includes all the necessary packages for the project to function correctly. Run the following command in your terminal:
+```bash
+pip install -r requirements.txt
+```
+
+### Applying Database Migrations
+Next, you need to apply the initial migrations to set up the database. This is done using the following command in the terminal, while located in the root directory of the cloned project:
 ```bash
 python manage.py migrate
 ```
 
-Finalmente, verificando que estes en la ruta adecuada, puedes ejecutar el servidor de desarrollo de Django con el siguiente comando:
+### Running the Development Server
+Finally, while ensuring you are in the correct project directory, you can start the Django development server by running:
 ```bash
 python manage.py runserver
 ```
-Luego, abre tu navegador web y ve a http://127.0.0.1:8000 para ver la aplicación en funcionamiento.
-
-Adicional, para la verificación del chat, debes acceder al la vista de administrador http://127.0.0.1:8000/admin/ 
-Luego de iniciar sesión con un usuario, debes pegar la siguiente ruta http://127.0.0.1:8000/ms/nombre y en "nombre" poner el nombre de la persona con la que desea iniciar o continuar una conversación.
+Once the server is running, open your web browser and go to http://127.0.0.1:8000 to see the application in action.
