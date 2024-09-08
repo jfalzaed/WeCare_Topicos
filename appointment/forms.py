@@ -22,3 +22,9 @@ class ReminderForm(forms.ModelForm):
     class Meta:
         model = Reminder
         fields = ['reminder_date', 'reminder_title', 'reminder_message', 'reminder_email']
+
+    def clean_reminder_email(self):
+        email = self.cleaned_data.get('reminder_email')
+        if not email:
+            raise forms.ValidationError('Por favor, introduce un correo válido.')
+        return email
