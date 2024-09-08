@@ -19,10 +19,10 @@
             margin-left: -250px;
         }
         .custom-offset-1 {
-            margin-left: 150px;
+            margin-left: 100px;
         }
         .custom-offset-2 {
-            margin-left: 450px;
+            margin-left: 260px;
         }
         .move-text {
             position: relative;
@@ -33,45 +33,46 @@
 <!--This class used in body is one of the created in style, where displays a background with a gradient-->
 <body class="bg-gradient-linear">
 <!--This is the form that will be displayed to the user to fill the appointment-->
-    <div class="container d-flex justify-content-center allign-items-center allign-middle mt-5 mb-5 bg-form"  style="width: 100vh; height: 93vh; border-radius: 15px;">
-        <form class="row g-0" method="POST">
+    <div class="container d-flex justify-content-center allign-items-center allign-middle mt-4 bg-form"  style="width: 100vh; height: 93vh; border-radius: 15px;">
+        <form class="row g-0 " method="POST">
             <!--This is the token that is used to validate the sesion of the user-->
             {% csrf_token %}
             <div class="col-12 mt-5">
                 <h1 class="text-center">Make your appointment</h1>
             </div>
             <!--This is an input for the name of the user-->
-            <div class="col-9 custom-offset-1 mt-5 ">
+            <div class="col-9  mt-5 custom-offset-1">
                 <input type="text" class="form-control" placeholder="Name" name="patient_name" required>
             </div>
             <!--This is an input for the email of the user-->
-            <div class="col-9 custom-offset-1 ">
+            <div class="col-9 custom-offset-1">
                 <input type="email" class="form-control" placeholder="Email" name="patient_email" required>
             </div>
             <!--This is an input for the phone of the user-->
-            <div class="col-9 custom-offset-1 ">
+            <div class="col-9 custom-offset-1">
                 <input type="text" class="form-control" placeholder="Phone" name="patient_phone" required>
             </div>
 
-            <div class="col-1 offset-1 fw-italic fs-3 move-text">
+            <div class="col-5 fw-italic fs-3">
                 <label for="appointment_date" style="height: 50px; margin-left: 100px;">Date:</label>
             </div>
             <!--This is a dropdown menu that displays the available dates for the appointment-->
             <div class="col-7"> 
-                <select name="appointment_date" class="form-select mt-2" style="margin-left: 100px;" required> 
-                    <option value="date1">August 26 3PM</option>
-                    <option value="date2">August 29 1PM</option>
-                    <option value="date3">August 31 10AM</option>
-                    <option value="date4">September 2 11AM</option>
-                    <option value="date5">September 11 9AM</option>
-                    <option value="date6">September 23 4PM</option>
-                    <option value="date7">September 30 2:30PM</option>
+                <select name="appointment_date" class="form-select mt-2" style="margin-left: -100px;" required> 
+                    <option value="2024-09-07T10:35:00-05:00">September 7 10:35AM</option>
+                    <option value="2024-09-08T10:25:00-05:00">September 8 10:25AM</option>
+                    <option value="2024-09-09T11:00:00-05:00">September 9 11AM</option>
+                    <option value="2024-09-11T09:00:00-05:00">September 11 9AM</option>
+                    <option value="2024-09-23T16:00:00-05:00">September 23 4PM</option>
+                    <option value="2024-09-30T14:30:00-05:00">September 30 2:30PM</option>
                 </select>
             </div>
             
 
-            <div class="col-6 custom-offset-2" > <input type="submit" class="btn btn-dark" style="width: 100px; height: 50px;" value="Submit">
-            <input type="button" class="btn btn-secondary" value="Cancel" onclick="window.location.assign('http://127.0.0.1:8000')" style="width: 100px; height: 50px; border: 3px solid rgb(87, 86, 86)">
+            <div class="col-12 text-center" > 
+                <input type="submit" class="btn btn-dark" style="width: 100px; height: 50px;" value="Submit"> 
+                <input type="button" class="btn btn-secondary" value="Cancel" onclick="window.location.assign('http://127.0.0.1:8000')" style="width: 100px; height: 50px; border: 3px solid rgb(87, 86, 86)">
+            </div>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

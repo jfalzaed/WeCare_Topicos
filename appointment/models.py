@@ -6,23 +6,29 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 #Model to store the appointment details
+class AvailableAppointment(models.Model):
+    date = models.DateTimeField()
+    available = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.date)
+    
 class Appointment(models.Model):
     patient_name = models.CharField(max_length=100)
     patient_email = models.EmailField()
     patient_phone = models.CharField(max_length=15)
     date_options = [
-        ("date1", "August 26 3PM"),
-        ("date2", "August 29 1PM"),
-        ("date3", "August 31 10AM"),
-        ("date4", "September 2 11AM"),
-        ("date5", "September 11 9AM"),
-        ("date6", "September 23 4PM"),
-        ("date7", "September 30 2:30PM"),
+        ("2024-09-07T10:35:00-05:00", "September 7 10:35AM"),
+        ("2024-09-08T10:25:00-05:00", "September 8 10:25AM"),
+        ("2024-09-09T11:00:00-05:00", "September 9 11AM"),
+        ("2024-09-11T09:00:00-05:00", "September 11 9AM"),
+        ("2024-09-23T16:00:00-05:00", "September 23 4PM"),
+        ("2024-09-30T14:30:00-05:00", "September 30 2:30PM"),
 
     ]
 
-    appointment_date = models.CharField(max_length=20, choices=date_options, default="August 26 3PM")
-
+    appointment_date = models.CharField(max_length=30, choices=date_options, default="2024-09-06T13:00:00+00:00")
+    
     def __str__(self):
         return self.patient_name
  
