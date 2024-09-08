@@ -1,29 +1,48 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comentarios</title>
-</head>
-<body>
-    <h1>Lista de Comentarios</h1>
-    {% if mensaje %}
-        <p>{{ mensaje }}</p>
-    {% endif %}
-    {% if comentarios %}
-        <ul>
-            {% for comentario in comentarios %}
-                <li>
-                    <strong>{{ comentario.autor.username }}</strong>: {{ comentario.texto }} <br>
-                    <a href="{% url 'detalle-comentario' comentario.id %}">Ver detalles</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No hay comentarios disponibles.</p>
-    {% endif %}
-    <a href="{% url 'crear-comentario' %}">Crear comentario</a>
-    <a href="{% url 'home' %}" class="btn btn-primary">Go back to homepage</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="text-center">
+            <h1 class="display-4">Publicaciones</h1>
+            {% if mensaje %}
+                <p class="lead">{{ mensaje }}</p>
+            {% endif %}
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-lg-6 offset-lg-3">
+                <form action="{% url 'buscar-comentario' %}" method="post" class="form-inline justify-content-center">
+                    {% csrf_token %}
+                    <input type="text" name="texto" class="form-control mr-2" placeholder="Buscar comentarios..." required>
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                {% if comentarios %}
+                    <ul class="list-group">
+                        {% for comentario in comentarios %}
+                            <li class="list-group-item">
+                                <strong>{{ comentario.autor.username }}</strong>: {{ comentario.texto }}
+                                <br>
+                                <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-link">Ver detalles</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No hay comentarios disponibles.</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="{% url 'crear-comentario' %}" class="btn btn-primary mb-2">Crear publicación</a>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Volver a la página principal</a>
+        </div>
+    </div>
+{% endblock content %}
+
+
 

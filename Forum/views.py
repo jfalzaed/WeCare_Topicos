@@ -89,14 +89,19 @@ def respuesta_delete(request, id):
 
 def buscar_comentario(request):
     if request.method == 'POST':
-        texto = request.POST['texto']
-        comentarios_texto = Comentario.objects.filter(texto__contains=texto)
-        comentarios_autor = Comentario.objects.filter(autor__username__contains=texto)
-        comentarios = comentarios_texto.union(comentarios_autor)
-
-        if comentarios.count() == 0:
-            return render(request, 'Forum/comentarios.html', {'comentarios': comentarios, 'mensaje': 'No se encontraron resultados'})
+        texto = request.POST['texto'].strip()
         
-        return render(request, 'Forum/comentarios.html', {'comentarios': comentarios})
+        if not texto:
+            comentarios = Comentario.objects.all()
+        else:
+            comentarios_texto = Comentario.objects.filter(texto__icontains=texto)
+            comentarios_autor = Comentario.objects.filter(autor__username__icontains=texto)
+            comentarios = comentarios_texto.union(comentarios_autor)
+        
+        mensaje = 'No se encontraron resultados para tu búsqueda.' if not comentarios.exists() else ''
+        
+        return render(request, 'Forum/comentarios.html', {'comentarios': comentarios, 'mensaje': mensaje})
     else:
         return redirect('comentarios')
+
+

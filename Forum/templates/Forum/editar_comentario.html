@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Comentario</title>
-</head>
-<body>
-    <h1>Editar Comentario</h1>
-    <form action="{% url 'editar-comentario' comentario.id %}" method="post">
-        {% csrf_token %}
-        <textarea name="texto">{{ comentario.texto }}</textarea>
-        <button type="submit">Guardar Cambios</button>
-    </form>
-    <a href="{% url 'detalle-comentario' comentario.id %}">Cancelar</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="text-center">
+            <h1 class="display-4">Editar Comentario</h1>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8">
+                <form action="{% url 'editar-comentario' comentario.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <textarea name="texto" class="form-control" rows="4">{{ comentario.texto }}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Guardar Cambios</button>
+                    <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-secondary w-100 mt-2">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
