@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Contact</title>
-    <!-- Se importa el CSS de Bootstrap para darle estilo a la página -->
-    <link href="https://cdn.jsdelivr.net/tnpm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <div class="container my-5">
-        <a href="{% url 'home' %}" class="btn btn-primary">Go back to homepage</a>
         <div class="text-center">
             <h1 class="display-4">Emergency Contact</h1>
             <p class="lead">Click on the buttons below to call the emergency services.</p>
@@ -75,6 +66,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+{% endblock content %}
