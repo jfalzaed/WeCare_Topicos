@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .forms import AppointmentForm, ReminderForm
 from .models import Reminder
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 # Create your views here.
 
@@ -38,7 +39,20 @@ def create_reminder(request):
     return render(request, 'create_reminder.html', {'form': form})
 
 
+
+def reminder_list(request):
+    reminders = Reminder.objects.filter(reminder_date__gte=timezone.now())  # Only show reminders that are in the future
+    return render(request, 'reminder_list.html', {'reminders': reminders})
+
+
 """@login_required
 def reminder_list(request):
     reminders = Reminder.objects.filter(user=request.user)
     return render(request, 'reminder_list.html', {'reminders': reminders})"""
+    
+
+# Function to get the count of future reminders    
+def get_future_reminders(request):
+    future_reminder_count = Reminder.objects.filter(reminder_date__gte=timezone.now()).count()
+    return {'future_reminder_count': future_reminder_count}
+    

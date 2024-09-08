@@ -67,9 +67,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'appointment.views.get_future_reminders',
             ],
         },
     },
+    
 ]
 
 WSGI_APPLICATION = 'WeCare.wsgi.application'

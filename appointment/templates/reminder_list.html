@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Your Reminders</h2>
-<ul>
-    {% for reminder in reminders %}
-        <li>{{ reminder.title }} - {{ reminder.reminder_date }}</li>
-    {% endfor %}
-</ul>
+<div class="container mt-4">
+    <h2>Your Reminders</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reminder in reminders %}
+            <tr>
+                <td>{{ reminder.reminder_title }}</td>
+                <td>{{ reminder.reminder_date }}</td>
+                <td>{{ reminder.reminder_message }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock content %}
