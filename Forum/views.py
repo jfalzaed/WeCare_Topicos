@@ -6,16 +6,10 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 # Create your views here.
 
-def welcome_view(request):
-    return render(request, 'Forum/welcome.html')
-
 def comentarios_view(request):
     comentarios = Comentario.objects.order_by('-fecha_creacion')
     return render(request, 'Forum/comentarios.html', {'comentarios': comentarios})
 
-def perfil_view(request):
-    comentarios = Comentario.objects.filter(autor_id=request.user.id)
-    return render(request, 'Forum/perfil.html', {'comentarios': comentarios})
 
 def detalle_comentario(request, id):
     try:
@@ -23,7 +17,7 @@ def detalle_comentario(request, id):
         respuestas = Respuesta.objects.filter(comentario_id=id)
         return render(request, 'Forum/detalle_comentarios.html', {'comentario': comentario, 'respuestas': respuestas})
     except Comentario.DoesNotExist:
-        return render(request, 'Recetario/comentarios.html', {'mensaje': 'El comentario no existe'})
+        return render(request, 'Forum/comentarios.html', {'mensaje': 'El comentario no existe'})
 
 def comentario_create(request):
     if request.method == 'POST':

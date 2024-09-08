@@ -22,20 +22,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 from emergency import views as emergency_views
 from appointment import views as appointment_views
-from users import views as users_views
+from Account import views as Account_views
 import Forum.views as Forum_views
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', users_views.home, name='home'),
+    path('', Account_views.home, name='home'),
     path('fillAppointment/', appointment_views.form, name='fill_appointment'),
     path('appointmentFiled/', appointment_views.success_form, name='success_form'),
     path('emergency/', emergency_views.emergency, name='emergency'),
     path('reminder/', appointment_views.create_reminder, name='create_reminder'),
     path('comentarios/', Forum_views.comentarios_view, name='comentarios'),  # Lista de comentarios
-    path('perfil/', Forum_views.perfil_view, name='perfil'),  # Perfil del usuario (comentarios propios)
+    path('perfil/', Account_views.perfil_view, name='perfil'),  # Perfil del usuario (comentarios propios)
     path('comentario/<int:id>/', Forum_views.detalle_comentario, name='detalle-comentario'),  # Detalles de un comentario
     path('comentario/crear/', Forum_views.comentario_create, name='crear-comentario'),  # Crear comentario
     path('comentario/editar/<int:id>/', Forum_views.comentario_edit, name='editar-comentario'),  # Editar comentario
