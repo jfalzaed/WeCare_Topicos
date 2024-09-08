@@ -9,11 +9,11 @@
     <!--This are style functions created to modify certain coumns in the form-->
     <style>
         .bg-gradient-linear {
-            background: linear-gradient(to left, #3c6eee, #0a4686);
+            background: linear-gradient(to left, #ebaefa, #d395e4);
             height: 100vh;
         }
         .bg-form {
-            background: linear-gradient(to right, #2fa993, #0f8b8d);
+            background: linear-gradient(to right, #81d2e7, #69eaec);
         }
         .negative-offset-1 {
             margin-left: -250px;
@@ -33,7 +33,7 @@
 <!--This class used in body is one of the created in style, where displays a background with a gradient-->
 <body class="bg-gradient-linear">
 <!--This is the form that will be displayed to the user to fill the appointment-->
-    <div class="container d-flex justify-content-center allign-items-center allign-middle mt-4 bg-form"  style="width: 100vh; height: 93vh; border-radius: 15px;">
+    <div class="container border border-dark d-flex justify-content-center allign-items-center allign-middle mt-4 bg-form"  style="width: 100vh; height: 93vh; border-radius: 15px;">
         <form class="row g-0 " method="POST">
             <!--This is the token that is used to validate the sesion of the user-->
             {% csrf_token %}
