@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+</head>
+<body>
+    <h1>Mis Comentarios</h1>
+    
+    {% if comentarios %}
+        <ul>
+            {% for comentario in comentarios %}
+                <li>
+                    <strong>{{ comentario.autor.username }}</strong>: {{ comentario.texto }} <br>
+                    <a href="{% url 'detalle-comentario' comentario.id %}">Ver detalles</a>
+                    <a href="{% url 'editar-comentario' comentario.id %}">Editar</a>
+                    <a href="{% url 'eliminar-comentario' comentario.id %}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tienes comentarios.</p>
+    {% endif %}
+    <a href="{% url 'comentarios' %}">Volver a Comentarios</a>
+    <br><br>
+</body>
+</html>

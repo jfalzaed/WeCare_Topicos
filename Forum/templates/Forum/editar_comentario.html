@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Comentario</title>
+</head>
+<body>
+    <h1>Editar Comentario</h1>
+    <form action="{% url 'editar-comentario' comentario.id %}" method="post">
+        {% csrf_token %}
+        <textarea name="texto">{{ comentario.texto }}</textarea>
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <a href="{% url 'detalle-comentario' comentario.id %}">Cancelar</a>
+</body>
+</html>

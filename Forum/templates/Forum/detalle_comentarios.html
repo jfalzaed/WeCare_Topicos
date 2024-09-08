@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Comentario</title>
+</head>
+<body>
+    <h1>Detalle del Comentario</h1>
+    <p><strong>Autor:</strong> {{ comentario.autor.username }}</p>
+    <p><strong>Texto:</strong> {{ comentario.texto }}</p>
+
+    <h2>Respuestas</h2>
+    {% if respuestas %}
+        <ul>
+            {% for respuesta in respuestas %}
+                <li>
+                    <strong>{{ respuesta.autor.username }}</strong>: {{ respuesta.texto }}
+                    <a href="{% url 'eliminar-respuesta' respuesta.id %}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay respuestas para este comentario.</p>
+    {% endif %}
+
+    <form action="{% url 'crear-respuesta' comentario.id %}" method="post">
+        {% csrf_token %}
+        <textarea name="texto" placeholder="Escribe tu respuesta"></textarea>
+        <button type="submit">Responder</button>
+    </form>
+    <a href="{% url 'comentarios' %}">Volver a comentarios</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Comentario</title>
+</head>
+<body>
+    <h1>Crear un Nuevo Comentario</h1>
+    <form action="{% url 'crear-comentario' %}" method="post">
+        {% csrf_token %}
+        <textarea name="texto" placeholder="Escribe tu comentario"></textarea>
+        <button type="submit">Publicar</button>
+    </form>
+    <a href="{% url 'comentarios' %}">Cancelar</a>
+</body>
+</html>

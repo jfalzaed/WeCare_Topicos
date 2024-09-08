@@ -15,10 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
+
+from django.conf import settings
+from django.conf.urls.static import static
 from emergency import views as emergency_views
 from appointment import views as appointment_views
 from users import views as users_views
+import Forum.views as Forum_views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +34,13 @@ urlpatterns = [
     path('appointmentFiled/', appointment_views.success_form, name='success_form'),
     path('emergency/', emergency_views.emergency, name='emergency'),
     path('reminder/', appointment_views.create_reminder, name='create_reminder'),
-    
-]
+    path('comentarios/', Forum_views.comentarios_view, name='comentarios'),  # Lista de comentarios
+    path('perfil/', Forum_views.perfil_view, name='perfil'),  # Perfil del usuario (comentarios propios)
+    path('comentario/<int:id>/', Forum_views.detalle_comentario, name='detalle-comentario'),  # Detalles de un comentario
+    path('comentario/crear/', Forum_views.comentario_create, name='crear-comentario'),  # Crear comentario
+    path('comentario/editar/<int:id>/', Forum_views.comentario_edit, name='editar-comentario'),  # Editar comentario
+    path('comentario/eliminar/<int:id>/', Forum_views.comentario_delete, name='eliminar-comentario'),  # Eliminar comentario
+    path('comentario/<int:comentario_id>/respuesta/crear/', Forum_views.respuesta_create, name='crear-respuesta'),  # Crear respuesta
+    path('respuesta/eliminar/<int:id>/', Forum_views.respuesta_delete, name='eliminar-respuesta'),  # Eliminar respuesta
+    path('buscar/', Forum_views.buscar_comentario, name='buscar-comentario'),  # Buscar comentario
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
