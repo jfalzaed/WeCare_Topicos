@@ -3,35 +3,35 @@
 {% block content %}
     <div class="container my-5">
         <div class="text-center">
-            <h1 class="display-4">Detalle del Comentario</h1>
+            <h1 class="display-4">Details</h1>
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8">
-                <p><strong>Autor:</strong> {{ comentario.autor.username }}</p>
-                <p><strong>Texto:</strong> {{ comentario.texto }}</p>
+                <p><strong>Author:</strong> {{ comentario.autor.username }}</p>
+                <p><strong>Text:</strong> {{ comentario.texto }}</p>
 
-                <h2 class="mt-4">Respuestas</h2>
+                <h2 class="mt-4">Responses</h2>
                 {% if respuestas %}
                     <ul class="list-group">
                         {% for respuesta in respuestas %}
                             <li class="list-group-item">
                                 <strong>{{ respuesta.autor.username }}</strong>: {{ respuesta.texto }}
-                                <a href="{% url 'eliminar-respuesta' respuesta.id %}" class="btn btn-danger btn-sm float-right">Eliminar</a>
+                                <a href="{% url 'eliminar-respuesta' respuesta.id %}" class="btn btn-danger btn-sm float-right">Delete</a>
                             </li>
                         {% endfor %}
                     </ul>
                 {% else %}
-                    <p>No hay respuestas para este comentario.</p>
+                    <p>There are no responses for this comment.</p>
                 {% endif %}
 
                 <form action="{% url 'crear-respuesta' comentario.id %}" method="post" class="mt-4">
                     {% csrf_token %}
                     <div class="form-group">
-                        <textarea name="texto" class="form-control" rows="2" placeholder="Escribe tu respuesta"></textarea>
+                        <textarea name="texto" class="form-control" rows="2" placeholder="Write your response"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Responder</button>
+                    <button type="submit" class="btn btn-primary w-100">Reply</button>
                 </form>
-                <a href="{% url 'comentarios' %}" class="btn btn-secondary w-100 mt-2">Volver a comentarios</a>
+                <a href="{% url 'comentarios' %}" class="btn btn-secondary w-100 mt-2">Return to comments</a>
             </div>
         </div>
     </div>

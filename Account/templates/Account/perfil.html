@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container my-5">
         <div class="text-center">
-            <h1 class="display-4">Mis Publicaciones</h1>
+            <h1 class="display-4">My Posts</h1>
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8">
@@ -13,16 +13,16 @@
                             <li class="list-group-item">
                                 <strong>{{ comentario.autor.username }}</strong>: {{ comentario.texto }}
                                 <br>
-                                <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-link">Ver detalles</a>
-                                <a href="{% url 'editar-comentario' comentario.id %}" class="btn btn-warning btn-sm">Editar</a>
-                                <a href="{% url 'eliminar-comentario' comentario.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                                <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-link">Details</a>
+                                <a href="{% url 'editar-comentario' comentario.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{% url 'eliminar-comentario' comentario.id %}" class="btn btn-danger btn-sm">Delete</a>
                             </li>
                         {% endfor %}
                     </ul>
                 {% else %}
-                    <p>No tienes comentarios.</p>
+                    <p>You have no comments.</p>
                 {% endif %}
-                <a href="{% url 'comentarios' %}" class="btn btn-secondary w-100 mt-2">Volver a Comentarios</a>
+                <a href="{% url 'comentarios' %}" class="btn btn-secondary w-100 mt-2">Return to comments</a>
             </div>
         </div>
     </div>

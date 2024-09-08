@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container my-5">
         <div class="text-center">
-            <h1 class="display-4">Publicaciones</h1>
+            <h1 class="display-4">Publications</h1>
             {% if mensaje %}
                 <p class="lead">{{ mensaje }}</p>
             {% endif %}
@@ -27,19 +27,19 @@
                             <li class="list-group-item">
                                 <strong>{{ comentario.autor.username }}</strong>: {{ comentario.texto }}
                                 <br>
-                                <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-link">Ver detalles</a>
+                                <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-link">Details</a>
                             </li>
                         {% endfor %}
                     </ul>
                 {% else %}
-                    <p>No hay comentarios disponibles.</p>
+                    <p>No comments available.</p>
                 {% endif %}
             </div>
         </div>
         
         <div class="text-center mt-4">
-            <a href="{% url 'crear-comentario' %}" class="btn btn-primary mb-2">Crear publicación</a>
-            <a href="{% url 'home' %}" class="btn btn-secondary">Volver a la página principal</a>
+            <a href="{% url 'crear-comentario' %}" class="btn btn-primary mb-2">Create post</a>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Return</a>
         </div>
     </div>
 {% endblock content %}
