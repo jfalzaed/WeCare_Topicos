@@ -32,7 +32,10 @@ After cloning the repository, you need to install the required dependencies list
 ```bash
 pip install -r requirements.txt
 ```
-
+It also applies the following updates:
+```bash
+pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
 ### Applying Database Migrations
 Next, you need to apply the initial migrations to set up the database. This is done using the following command in the terminal, while located in the root directory of the cloned project:
 ```bash
