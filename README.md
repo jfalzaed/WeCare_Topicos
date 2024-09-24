@@ -48,3 +48,6 @@ Finally, while ensuring you are in the correct project directory, you can start 
 python manage.py runserver
 ```
 Once the server is running, open your web browser and go to http://127.0.0.1:8000 to see the application in action.
+
+
+Note: In order to create a comment or reply in the forum, you must log in as an administrator.
