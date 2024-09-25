@@ -32,7 +32,10 @@ After cloning the repository, you need to install the required dependencies list
 ```bash
 pip install -r requirements.txt
 ```
-
+It also applies the following updates:
+```bash
+pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
 ### Applying Database Migrations
 Next, you need to apply the initial migrations to set up the database. This is done using the following command in the terminal, while located in the root directory of the cloned project:
 ```bash
@@ -45,3 +48,8 @@ Finally, while ensuring you are in the correct project directory, you can start 
 python manage.py runserver
 ```
 Once the server is running, open your web browser and go to http://127.0.0.1:8000 to see the application in action.
+
+
+Note: In order to create a comment or reply in the forum, you must log in as an administrator.
+
+Note: If you want to use it you must ask for the client_secret file which can't be published in github, if you already have the file, you can try the app with an email that can be provided. In case of an error try deleting the file token.json.
