@@ -52,4 +52,4 @@ Once the server is running, open your web browser and go to http://127.0.0.1:800
 
 Note: In order to create a comment or reply in the forum, you must log in as an administrator.
 
-Note: At the time the only email that is working with calendar is Nicolas's google account.
+Note: At the time the only email that is working with calendar is Nicolas's google account, also if you want to use it you must ask for the client_secret file which can't be published in github.
