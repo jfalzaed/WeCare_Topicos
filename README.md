@@ -52,4 +52,4 @@ Once the server is running, open your web browser and go to http://127.0.0.1:800
 
 Note: In order to create a comment or reply in the forum, you must log in as an administrator.
 
-Note: If you want to use it you must ask for the client_secret file which can't be published in github, if you already have the file, you can try the app with an email that can be provided.
+Note: If you want to use it you must ask for the client_secret file which can't be published in github, if you already have the file, you can try the app with an email that can be provided. In case of an error try deleting the file token.json.
