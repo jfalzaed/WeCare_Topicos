@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Mental_contente(models.Model):
+class Content(models.Model):
     ESTRES = 'estres'
     DEPRESSION = 'depresion'
     ANSIEDAD = 'ansiedad'

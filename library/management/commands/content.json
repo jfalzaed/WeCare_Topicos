@@ -1,65 +1,65 @@
 [
     {
-        "title": "Comprender el Estrés",
-        "description": "El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o amenazantes. Puede ser positivo en pequeñas dosis, ayudándonos a mantenernos alerta y concentrados, pero cuando es crónico puede afectar nuestra salud física y mental.",
+        "title": "Comprender el Estr\u00e9s",
+        "description": "El estr\u00e9s es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o amenazantes. Puede ser positivo en pequeñas dosis, ayud\u00e1ndonos a mantenernos alerta y concentrados, pero cuando es cr\u00f3nico puede afectar nuestra salud f\u00edsica y mental.",
         "image": "media/content/images/estres1.jpg",
         "url": "https://www.mayoclinic.org/es-es/healthy-lifestyle/stress-management/in-depth/stress/art-20046037",
         "topic": "estres"
     },
     {
-        "title": "Técnicas de Manejo del Estrés",
-        "description": "Existen diversas técnicas para manejar el estrés, como la meditación, la respiración profunda, el ejercicio físico regular y la organización del tiempo. Implementar estas estrategias en la rutina diaria puede mejorar significativamente el bienestar general.",
+        "title": "T\u00e9cnicas de Manejo del Estr\u00e9s",
+        "description": "Existen diversas t\u00e9cnicas para manejar el estr\u00e9s, como la meditaci\u00f3n, la respiraci\u00f3n profunda, el ejercicio f\u00edsico regular y la organizaci\u00f3n del tiempo. Implementar estas estrategias en la rutina diaria puede mejorar significativamente el bienestar general.",
         "image": "media/content/images/estres2.jpg",
-        "url": "https://www.psicologiaymente.com/gestion-estres/tecnicas-manejo-estres",
+        "url": "https://medlineplus.gov/spanish/ency/article/001942.htm",
         "topic": "estres"
     },
     {
-        "title": "Efectos del Estrés Crónico",
-        "description": "El estrés crónico puede llevar a una serie de problemas de salud, incluyendo enfermedades cardiovasculares, trastornos del sueño, problemas digestivos y debilitamiento del sistema inmunológico. Es crucial reconocer los signos y buscar ayuda profesional si es necesario.",
+        "title": "Efectos del Estr\u00e9s Cr\u00f3nico",
+        "description": "El estr\u00e9s cr\u00f3nico puede llevar a una serie de problemas de salud, incluyendo enfermedades cardiovasculares, trastornos del sueño, problemas digestivos y debilitamiento del sistema inmunol\u00f3gico. Es crucial reconocer los signos y buscar ayuda profesional si es necesario.",
         "image": "media/content/images/estres3.jpg",
-        "url": "https://www.cdc.gov/mentalhealth/stress-coping/stress.htm",
+        "url": "https://www.healthy-heart.org/es/mantenga-su-corazon-sano/estres-y-sueno/?gad_source=1&gclid=CjwKCAjw9p24BhB_EiwA8ID5BqFf6ZG1wUSC-7n_57XhsOeT7tHN0MuVj1O5M2GAEoSrlDdJ2H_b6BoC2nwQAvD_BwE",
         "topic": "estres"
     },
     {
-        "title": "Identificando la Depresión",
-        "description": "La depresión es un trastorno del estado de ánimo que afecta cómo una persona siente, piensa y maneja las actividades diarias. Los síntomas incluyen tristeza persistente, pérdida de interés en actividades, cambios en el apetito y problemas de concentración.",
+        "title": "Identificando la Depresi\u00f3n",
+        "description": "La depresi\u00f3n es un trastorno del estado de \u00e1nimo que afecta c\u00f3mo una persona siente, piensa y maneja las actividades diarias. Los s\u00edntomas incluyen tristeza persistente, p\u00e9rdida de inter\u00e9s en actividades, cambios en el apetito y problemas de concentraci\u00f3n.",
         "image": "media/content/images/depresion1.jpg",
         "url": "https://www.who.int/es/news-room/fact-sheets/detail/depression",
         "topic": "depresion"
     },
     {
-        "title": "Tratamientos para la Depresión",
-        "description": "El tratamiento de la depresión puede incluir terapia psicológica, medicación antidepresiva o una combinación de ambas. Es importante buscar ayuda profesional para determinar el enfoque más adecuado según las necesidades individuales.",
+        "title": "Tratamientos para la Depresi\u00f3n",
+        "description": "El tratamiento de la depresi\u00f3n puede incluir terapia psicol\u00f3gica, medicaci\u00f3n antidepresiva o una combinaci\u00f3n de ambas. Es importante buscar ayuda profesional para determinar el enfoque m\u00e1s adecuado seg\u00fan las necesidades individuales.",
         "image": "media/content/images/depresion2.jpg",
         "url": "https://www.mayoclinic.org/es-es/diseases-conditions/depression/diagnosis-treatment/drc-20356013",
         "topic": "depresion"
     },
     {
-        "title": "Cómo Apoyar a Alguien con Depresión",
-        "description": "Apoyar a alguien que padece depresión implica escuchar sin juzgar, ofrecer compañía, y animar a la persona a buscar ayuda profesional. Es fundamental mostrar empatía y comprensión, reconociendo que la depresión es una condición tratable.",
+        "title": "C\u00f3mo Apoyar a Alguien con Depresi\u00f3n",
+        "description": "Apoyar a alguien que padece depresi\u00f3n implica escuchar sin juzgar, ofrecer compañ\u00eda, y animar a la persona a buscar ayuda profesional. Es fundamental mostrar empat\u00eda y comprensi\u00f3n, reconociendo que la depresi\u00f3n es una condici\u00f3n tratable.",
         "image": "media/content/images/depresion3.jpg",
-        "url": "https://www.mentalhealth.gov/espanol/tipos-de-trastornos-de-salud-mental/depresion/apoyar-a-alguien",
+        "url": "https://www.mayoclinic.org/es/diseases-conditions/depression/in-depth/depression/art-20045943",
         "topic": "depresion"
     },
     {
         "title": "Comprender la Ansiedad",
-        "description": "La ansiedad es una reacción natural al estrés, caracterizada por sentimientos de tensión, preocupación y cambios físicos como el aumento del ritmo cardíaco. Sin embargo, cuando es excesiva o persistente, puede interferir con las actividades diarias.",
+        "description": "La ansiedad es una reacci\u00f3n natural al estr\u00e9s, caracterizada por sentimientos de tensi\u00f3n, preocupaci\u00f3n y cambios f\u00edsicos como el aumento del ritmo card\u00edaco. Sin embargo, cuando es excesiva o persistente, puede interferir con las actividades diarias.",
         "image": "media/content/images/ansiedad1.jpg",
-        "url": "https://www.ansiedad.com/que-es-la-ansiedad/",
+        "url": "https://opcionyo.com/blog/nota/143-como-comprender-ansiedad",
         "topic": "ansiedad"
     },
     {
-        "title": "Síntomas Comunes de la Ansiedad",
-        "description": "Los síntomas de la ansiedad pueden incluir nerviosismo, agitación, fatiga, dificultad para concentrarse, irritabilidad y problemas para dormir. Reconocer estos síntomas es el primer paso para buscar ayuda y manejar la ansiedad de manera efectiva.",
+        "title": "S\u00edntomas Comunes de la Ansiedad",
+        "description": "Los s\u00edntomas de la ansiedad pueden incluir nerviosismo, agitaci\u00f3n, fatiga, dificultad para concentrarse, irritabilidad y problemas para dormir. Reconocer estos s\u00edntomas es el primer paso para buscar ayuda y manejar la ansiedad de manera efectiva.",
         "image": "media/content/images/ansiedad2.jpg",
-        "url": "https://www.psicologiaymente.com/trastornos/sintomas-ansiedad",
+        "url": "https://www.nimh.nih.gov/health/publications/espanol/trastorno-de-ansiedad-generalizada-cuando-no-se-pueden-controlar-las-preocupaciones-new",
         "topic": "ansiedad"
     },
     {
         "title": "Estrategias para Manejar la Ansiedad",
-        "description": "Algunas estrategias efectivas para manejar la ansiedad incluyen la práctica regular de ejercicio, técnicas de relajación como la meditación y el yoga, establecer rutinas diarias, y buscar apoyo social. Estas prácticas pueden ayudar a reducir los niveles de ansiedad y mejorar la calidad de vida.",
+        "description": "Algunas estrategias efectivas para manejar la ansiedad incluyen la pr\u00e1ctica regular de ejercicio, t\u00e9cnicas de relajaci\u00f3n como la meditaci\u00f3n y el yoga, establecer rutinas diarias, y buscar apoyo social. Estas pr\u00e1cticas pueden ayudar a reducir los niveles de ansiedad y mejorar la calidad de vida.",
         "image": "media/content/images/ansiedad3.jpg",
-        "url": "https://www.webconsultas.com/ansiedad/articulo/como-controlar-la-ansiedad",
+        "url": "https://ministeriointernacional.com/5-pasos-de-como-salir-de-la-ansiedad/?gad_source=1&gclid=CjwKCAjw9p24BhB_EiwA8ID5Bj4pN65_Ni4gH9cfglWQ8YmQQd2xHDrxUUCXvrR3R0b_fJM-0RYSHhoCJrYQAvD_BwE",
         "topic": "ansiedad"
     }
 ]
