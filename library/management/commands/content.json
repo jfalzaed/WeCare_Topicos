@@ -1,0 +1,65 @@
+[
+    {
+        "title": "Comprender el Estrés",
+        "description": "El estrés es una respuesta natural del cuerpo ante situaciones que percibimos como desafiantes o amenazantes. Puede ser positivo en pequeñas dosis, ayudándonos a mantenernos alerta y concentrados, pero cuando es crónico puede afectar nuestra salud física y mental.",
+        "image": "media/content/images/estres1.jpg",
+        "url": "https://www.mayoclinic.org/es-es/healthy-lifestyle/stress-management/in-depth/stress/art-20046037",
+        "topic": "estres"
+    },
+    {
+        "title": "Técnicas de Manejo del Estrés",
+        "description": "Existen diversas técnicas para manejar el estrés, como la meditación, la respiración profunda, el ejercicio físico regular y la organización del tiempo. Implementar estas estrategias en la rutina diaria puede mejorar significativamente el bienestar general.",
+        "image": "media/content/images/estres2.jpg",
+        "url": "https://www.psicologiaymente.com/gestion-estres/tecnicas-manejo-estres",
+        "topic": "estres"
+    },
+    {
+        "title": "Efectos del Estrés Crónico",
+        "description": "El estrés crónico puede llevar a una serie de problemas de salud, incluyendo enfermedades cardiovasculares, trastornos del sueño, problemas digestivos y debilitamiento del sistema inmunológico. Es crucial reconocer los signos y buscar ayuda profesional si es necesario.",
+        "image": "media/content/images/estres3.jpg",
+        "url": "https://www.cdc.gov/mentalhealth/stress-coping/stress.htm",
+        "topic": "estres"
+    },
+    {
+        "title": "Identificando la Depresión",
+        "description": "La depresión es un trastorno del estado de ánimo que afecta cómo una persona siente, piensa y maneja las actividades diarias. Los síntomas incluyen tristeza persistente, pérdida de interés en actividades, cambios en el apetito y problemas de concentración.",
+        "image": "media/content/images/depresion1.jpg",
+        "url": "https://www.who.int/es/news-room/fact-sheets/detail/depression",
+        "topic": "depresion"
+    },
+    {
+        "title": "Tratamientos para la Depresión",
+        "description": "El tratamiento de la depresión puede incluir terapia psicológica, medicación antidepresiva o una combinación de ambas. Es importante buscar ayuda profesional para determinar el enfoque más adecuado según las necesidades individuales.",
+        "image": "media/content/images/depresion2.jpg",
+        "url": "https://www.mayoclinic.org/es-es/diseases-conditions/depression/diagnosis-treatment/drc-20356013",
+        "topic": "depresion"
+    },
+    {
+        "title": "Cómo Apoyar a Alguien con Depresión",
+        "description": "Apoyar a alguien que padece depresión implica escuchar sin juzgar, ofrecer compañía, y animar a la persona a buscar ayuda profesional. Es fundamental mostrar empatía y comprensión, reconociendo que la depresión es una condición tratable.",
+        "image": "media/content/images/depresion3.jpg",
+        "url": "https://www.mentalhealth.gov/espanol/tipos-de-trastornos-de-salud-mental/depresion/apoyar-a-alguien",
+        "topic": "depresion"
+    },
+    {
+        "title": "Comprender la Ansiedad",
+        "description": "La ansiedad es una reacción natural al estrés, caracterizada por sentimientos de tensión, preocupación y cambios físicos como el aumento del ritmo cardíaco. Sin embargo, cuando es excesiva o persistente, puede interferir con las actividades diarias.",
+        "image": "media/content/images/ansiedad1.jpg",
+        "url": "https://www.ansiedad.com/que-es-la-ansiedad/",
+        "topic": "ansiedad"
+    },
+    {
+        "title": "Síntomas Comunes de la Ansiedad",
+        "description": "Los síntomas de la ansiedad pueden incluir nerviosismo, agitación, fatiga, dificultad para concentrarse, irritabilidad y problemas para dormir. Reconocer estos síntomas es el primer paso para buscar ayuda y manejar la ansiedad de manera efectiva.",
+        "image": "media/content/images/ansiedad2.jpg",
+        "url": "https://www.psicologiaymente.com/trastornos/sintomas-ansiedad",
+        "topic": "ansiedad"
+    },
+    {
+        "title": "Estrategias para Manejar la Ansiedad",
+        "description": "Algunas estrategias efectivas para manejar la ansiedad incluyen la práctica regular de ejercicio, técnicas de relajación como la meditación y el yoga, establecer rutinas diarias, y buscar apoyo social. Estas prácticas pueden ayudar a reducir los niveles de ansiedad y mejorar la calidad de vida.",
+        "image": "media/content/images/ansiedad3.jpg",
+        "url": "https://www.webconsultas.com/ansiedad/articulo/como-controlar-la-ansiedad",
+        "topic": "ansiedad"
+    }
+]
