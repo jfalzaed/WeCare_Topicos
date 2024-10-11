@@ -46,6 +46,7 @@ urlpatterns = [
     path('buscar/', Forum_views.buscar_comentario, name='buscar-comentario'),  # Buscar comentario
     path('reminder_list/', appointment_views.reminder_list, name='reminder_list'),
     path('library/', library_views.mental_health_library, name='library'),
+    path("statistics/", library_views.search_statistics, name='statistics'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
