@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'emergency',
     'Account',
     'Forum',
+    'library',
 ]
 
 MIDDLEWARE = [
