@@ -44,6 +44,9 @@ urlpatterns = [
     path('respuesta/eliminar/<int:id>/', Forum_views.respuesta_delete, name='eliminar-respuesta'),  # Eliminar respuesta
     path('buscar/', Forum_views.buscar_comentario, name='buscar-comentario'),  # Buscar comentario
     path('reminder_list/', appointment_views.reminder_list, name='reminder_list'),
+    path('logout/', Account_views.logout_view, name='logout'),
+    path('login/', Account_views.login_view, name='login'),
+    path('register/', Account_views.register_view, name='register'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

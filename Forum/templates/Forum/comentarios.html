@@ -1,20 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container my-5">
-        <div class="text-center">
-            <h1 class="display-4">Publications</h1>
+
+    <div class="container my-5 h-100">
+        <div class="flex justify-center items-center bg-custom-gray py-12 px-4 sm:px-6 lg:px-8 mb-8 rounded-lg shadow-lg">
+            <h1 class="display-4 text-gray-900 font-bold">Publications</h1>
             {% if mensaje %}
-                <p class="lead">{{ mensaje }}</p>
+                <p class="lead text-gray-600">{{ mensaje }}</p>
             {% endif %}
         </div>
         
-        <div class="row mt-4">
-            <div class="col-lg-6 offset-lg-3">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-6">
                 <form action="{% url 'buscar-comentario' %}" method="post" class="form-inline justify-content-center">
                     {% csrf_token %}
-                    <input type="text" name="texto" class="form-control mr-2" placeholder="Buscar comentarios..." required>
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <input type="text" name="texto" class="form-control mr-2" placeholder="Search comments..." required>
+                    <button type="submit" class="btn btn-primary">Search</button>
                 </form>
             </div>
         </div>
@@ -38,7 +39,7 @@
         </div>
         
         <div class="text-center mt-4">
-            <a href="{% url 'crear-comentario' %}" class="btn btn-primary mb-2">Create post</a>
+            <a href="{% url 'crear-comentario' %}" class="btn btn-primary mb-2">Create Post</a>
             <a href="{% url 'home' %}" class="btn btn-secondary">Return</a>
         </div>
     </div>

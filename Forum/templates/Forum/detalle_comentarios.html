@@ -1,37 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container my-5">
-        <div class="text-center">
-            <h1 class="display-4">Details</h1>
-        </div>
-        <div class="row justify-content-center mt-4">
-            <div class="col-lg-8">
-                <p><strong>Author:</strong> {{ comentario.autor.username }}</p>
-                <p><strong>Text:</strong> {{ comentario.texto }}</p>
 
-                <h2 class="mt-4">Responses</h2>
+    <div class="container my-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-gray-900 font-bold">Comment Details</h1>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 bg-white p-4 rounded-lg shadow-lg">
+                <p><strong>Author:</strong> {{ comentario.autor.username }}</p>
+                <p><strong>Comment:</strong> {{ comentario.texto }}</p>
+
+                <h2 class="mt-4 text-2xl font-semibold">Responses</h2>
                 {% if respuestas %}
-                    <ul class="list-group">
+                    <ul class="list-group mt-3">
                         {% for respuesta in respuestas %}
-                            <li class="list-group-item">
-                                <strong>{{ respuesta.autor.username }}</strong>: {{ respuesta.texto }}
-                                <a href="{% url 'eliminar-respuesta' respuesta.id %}" class="btn btn-danger btn-sm float-right">Delete</a>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>{{ respuesta.autor.username }}</strong>: {{ respuesta.texto }}
+                                </div>
+                                <a href="{% url 'eliminar-respuesta' respuesta.id %}" class="btn btn-danger btn-sm">Delete</a>
                             </li>
                         {% endfor %}
                     </ul>
                 {% else %}
-                    <p>There are no responses for this comment.</p>
+                    <p class="mt-3">There are no responses to this comment yet.</p>
                 {% endif %}
 
                 <form action="{% url 'crear-respuesta' comentario.id %}" method="post" class="mt-4">
                     {% csrf_token %}
                     <div class="form-group">
-                        <textarea name="texto" class="form-control" rows="2" placeholder="Write your response"></textarea>
+                        <textarea name="texto" class="form-control" rows="3" placeholder="Write your response..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Reply</button>
+                    <button type="submit" class="btn btn-primary w-100">Submit Reply</button>
                 </form>
-                <a href="{% url 'comentarios' %}" class="btn btn-secondary w-100 mt-2">Return to comments</a>
+
+                <a href="{% url 'comentarios' %}" class="btn btn-secondary w-100 mt-3">Back to Comments</a>
             </div>
         </div>
     </div>

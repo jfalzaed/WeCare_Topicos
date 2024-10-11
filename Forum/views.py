@@ -19,6 +19,7 @@ def detalle_comentario(request, id):
     except Comentario.DoesNotExist:
         return render(request, 'Forum/comentarios.html', {'mensaje': 'El comentario no existe'})
 
+@login_required(login_url='/login/')
 def comentario_create(request):
     if request.method == 'POST':
         texto = request.POST['texto']
@@ -29,7 +30,7 @@ def comentario_create(request):
     else:
         return render(request, 'Forum/crear_comentario.html')
 
-
+@login_required(login_url='/login/')
 def comentario_edit(request, id):
     try:
         comentario = Comentario.objects.get(id=id)
@@ -45,7 +46,7 @@ def comentario_edit(request, id):
     except Comentario.DoesNotExist:
         return render(request, 'Forum/comentarios.html', {'mensaje': 'El comentario no existe'})
 
-
+@login_required(login_url='/login/')
 def comentario_delete(request, id):
     try:
         comentario = Comentario.objects.get(id=id)
@@ -57,7 +58,7 @@ def comentario_delete(request, id):
     except Comentario.DoesNotExist:
         return render(request, 'Forum/comentarios.html', {'mensaje': 'El comentario no existe'})
 
-
+@login_required(login_url='/login/')
 def respuesta_create(request, comentario_id):
     if request.method == 'POST':
         texto = request.POST['texto']
@@ -68,7 +69,7 @@ def respuesta_create(request, comentario_id):
     else:
         return redirect('detalle-comentario', id=comentario_id)
 
-
+@login_required(login_url='/login/')
 def respuesta_delete(request, id):
     try:
         respuesta = Respuesta.objects.get(id=id)
