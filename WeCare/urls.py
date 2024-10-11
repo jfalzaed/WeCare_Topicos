@@ -24,6 +24,7 @@ from emergency import views as emergency_views
 from appointment import views as appointment_views
 from Account import views as Account_views
 import Forum.views as Forum_views
+from library import views as library_views
 
 
 
@@ -47,6 +48,9 @@ urlpatterns = [
     path('logout/', Account_views.logout_view, name='logout'),
     path('login/', Account_views.login_view, name='login'),
     path('register/', Account_views.register_view, name='register'),
+    path('library/', library_views.mental_health_library, name='library'),
+    path("statistics/", library_views.search_statistics, name='statistics'),
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

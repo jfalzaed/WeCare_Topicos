@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 
 <!--This is the html file that displays the form to file an appointment-->
 <!DOCTYPE html>
@@ -31,7 +33,7 @@
     </style>
 </head>
 <!--This class used in body is one of the created in style, where displays a background with a gradient-->
-<body class="bg-gradient-linear">
+<body>
 <!--This is the form that will be displayed to the user to fill the appointment-->
     <div class="container border border-dark d-flex justify-content-center allign-items-center allign-middle mt-4 bg-form"  style="width: 100vh; height: 93vh; border-radius: 15px;">
         <form class="row g-0 " method="POST">
@@ -80,4 +82,4 @@
 </html>
 
 
-
+{% endblock content %}
