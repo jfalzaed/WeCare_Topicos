@@ -1,49 +1,51 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container my-5 h-100">
+    <div class="flex justify-center items-center bg-custom-gray py-12 px-4 sm:px-6 lg:px-8 mb-8 rounded-lg shadow-lg">
+        <h1 class="display-4 text-gray-900 font-bold">Publications</h1>
+        {% if mensaje %}
+            <p class="lead text-gray-600">{{ mensaje }}</p>
+        {% endif %}
+    </div>
 
-    <div class="container my-5 h-100">
-        <div class="flex justify-center items-center bg-custom-gray py-12 px-4 sm:px-6 lg:px-8 mb-8 rounded-lg shadow-lg">
-            <h1 class="display-4 text-gray-900 font-bold">Publications</h1>
-            {% if mensaje %}
-                <p class="lead text-gray-600">{{ mensaje }}</p>
-            {% endif %}
-        </div>
-        
-        <div class="row justify-content-center mb-4">
-            <div class="col-lg-6">
-                <form action="{% url 'buscar-comentario' %}" method="post" class="form-inline justify-content-center">
-                    {% csrf_token %}
-                    <input type="text" name="texto" class="form-control mr-2" placeholder="Search comments..." required>
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-12">
-                {% if comentarios %}
-                    <ul class="list-group">
-                        {% for comentario in comentarios %}
-                            <li class="list-group-item">
-                                <strong>{{ comentario.autor.username }}</strong>: {{ comentario.texto }}
-                                <br>
-                                <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-link">Details</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>No comments available.</p>
-                {% endif %}
-            </div>
-        </div>
-        
-        <div class="text-center mt-4">
-            <a href="{% url 'crear-comentario' %}" class="btn btn-primary mb-2">Create Post</a>
-            <a href="{% url 'home' %}" class="btn btn-secondary">Return</a>
+    <div class="row justify-content-center mb-4">
+        <div class="col-lg-6">
+            <form action="{% url 'buscar-comentario' %}" method="post" class="form-inline justify-content-center">
+                {% csrf_token %}
+                <input type="text" name="texto" class="form-control mr-2" placeholder="Search comments..." required>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
         </div>
     </div>
-{% endblock content %}
 
+    <div class="row mt-4">
+        <div class="col-12">
+            {% if comentarios %}
+                <ul class="list-group">
+                    {% for comentario in comentarios %}
+                        <li class="list-group-item mb-3" style="background-color: transparent; border: none;">
+                            <div class="p-4 shadow-sm rounded-lg" style="background-color: inherit;">
+                                <h5 class="font-bold text-primary">{{ comentario.autor.username }}</h5>
+                                <p class="text-dark">{{ comentario.texto }}</p>
+                                <div class="text-right">
+                                    <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-primary btn-sm">Details</a>
+                                </div>                                
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No comments available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'crear-comentario' %}" class="btn btn-primary mb-2">Create Post</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Return</a>
+    </div>
+</div>
+{% endblock content %}
 
 

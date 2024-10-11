@@ -8,12 +8,23 @@
 body {
   background-color: #BDC0DB; 
   font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+
+main {
+  flex-grow: 1; 
 }
 
 footer {
   background-color: #8B74DB;
   color: #333; 
   padding: 20px 0; 
+  margin-top: auto;
+  width: 100%;
 }
 
 .list-group-item {
@@ -158,3 +169,9 @@ button[type="submit"]:hover {
 .navbar {
   font-size: 1.25rem; 
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
