@@ -2,14 +2,14 @@ from django.db import models
 
 # Create your models here.
 class Content(models.Model):
-    ESTRES = 'estres'
-    DEPRESSION = 'depresion'
-    ANSIEDAD = 'ansiedad'
+    STRESS = 'stress'
+    DEPRESSION = 'depression'
+    ANXIETY = 'anxiety'
 
     TOPIC_CHOICES = [
-        (ESTRES, 'Estrés'),
-        (DEPRESSION, 'Depresión'),
-        (ANSIEDAD, 'Ansiedad'),
+        (STRESS, 'Stress'),
+        (DEPRESSION, 'Depression'),
+        (ANXIETY, 'Anxiety'),
     ]
 
     title = models.CharField(max_length=100)
@@ -19,7 +19,6 @@ class Content(models.Model):
     topic = models.CharField(
         max_length=10,
         choices=TOPIC_CHOICES,
-        default=ESTRES,
     )
 
     def __str__(self):
