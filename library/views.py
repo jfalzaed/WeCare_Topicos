@@ -24,7 +24,7 @@ def mental_health_library(request):
 
 def search_statistics(request):
     matplotlib.use('Agg')
-    topics = ["Stress", "Depression", "Anxiety"]
+    topics = ['stress', 'depression', 'anxiety']
     search_per_topic_count = {}
     for topic in topics:
         search_in_topic = Searches.objects.filter(choice=topic)
