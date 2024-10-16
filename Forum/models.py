@@ -26,7 +26,13 @@ class Favorito(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['usuario', 'comentario'], name='unique_favorito')
+        ]
+
     def __str__(self):
         return f'{self.usuario.username} ha marcado como favorito el comentario {self.comentario.titulo}'
+
 
 

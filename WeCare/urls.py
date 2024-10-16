@@ -50,6 +50,7 @@ urlpatterns = [
     path('register/', Account_views.register_view, name='register'),
     path('library/', library_views.mental_health_library, name='library'),
     path("statistics/", library_views.search_statistics, name='statistics'),
+    path('comentario/favorito/<int:comentario_id>/', Forum_views.favorite, name='marcar-favorito'),
 
 
 

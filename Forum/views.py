@@ -1,5 +1,5 @@
 from django.template import loader
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
@@ -15,9 +15,19 @@ def detalle_comentario(request, id):
     try:
         comentario = Comentario.objects.get(id=id)
         respuestas = Respuesta.objects.filter(comentario_id=id)
-        return render(request, 'Forum/detalle_comentarios.html', {'comentario': comentario, 'respuestas': respuestas})
+        es_favorito = False
+
+        if request.user.is_authenticated:
+            es_favorito = Favorito.objects.filter(usuario=request.user, comentario=comentario).exists()
+
+        return render(request, 'Forum/detalle_comentarios.html', {
+            'comentario': comentario, 
+            'respuestas': respuestas, 
+            'es_favorito': es_favorito
+        })
     except Comentario.DoesNotExist:
         return render(request, 'Forum/comentarios.html', {'mensaje': 'El comentario no existe'})
+
 
 @login_required(login_url='/login/')
 def comentario_create(request):
@@ -57,6 +67,17 @@ def comentario_delete(request, id):
             return render(request, 'Forum/comentarios.html', {'mensaje': 'No puedes eliminar este comentario'})
     except Comentario.DoesNotExist:
         return render(request, 'Forum/comentarios.html', {'mensaje': 'El comentario no existe'})
+    
+@login_required(login_url='/login/')
+def favorite(request, comentario_id):
+    comentario = get_object_or_404(Comentario, id=comentario_id)
+    favorito, created = Favorito.objects.get_or_create(usuario=request.user, comentario=comentario)
+    
+    if not created:
+        # Si ya existe el favorito, eliminarlo
+        favorito.delete()
+    
+    return redirect('detalle-comentario', id=comentario_id)
 
 @login_required(login_url='/login/')
 def respuesta_create(request, comentario_id):

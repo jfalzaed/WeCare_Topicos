@@ -17,7 +17,13 @@ def home(request):
 
 def perfil_view(request):
     comentarios = Comentario.objects.filter(autor_id=request.user.id)
-    return render(request, 'Account/perfil.html', {'comentarios': comentarios})
+    favoritos = Favorito.objects.filter(usuario=request.user).select_related('comentario')
+    comentarios_favoritos = [favorito.comentario for favorito in favoritos]
+    
+    return render(request, 'Account/perfil.html', {
+        'comentarios': comentarios,
+        'comentarios_favoritos': comentarios_favoritos
+    })
 
 
 def login_view(request):
@@ -53,3 +59,4 @@ def logout_view(request):
         logout(request)
         return redirect('login') 
     return redirect('home') 
+

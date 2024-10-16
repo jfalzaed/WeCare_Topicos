@@ -12,6 +12,19 @@
                 <p><strong>Author:</strong> {{ comentario.autor.username }}</p>
                 <p><strong>Comment:</strong> {{ comentario.texto }}</p>
 
+                
+                {% if user.is_authenticated %}
+                    {% if es_favorito %}
+                        <a href="{% url 'marcar-favorito' comentario.id %}" class="btn btn-link w-100 mt-3">
+                            <i class="fas fa-star text-warning"></i> Not Favorite
+                        </a>
+                    {% else %}
+                        <a href="{% url 'marcar-favorito' comentario.id %}" class="btn btn-link w-100 mt-3">
+                            <i class="far fa-star text-secondary"></i> Favorite
+                        </a>
+                    {% endif %}
+                {% endif %}
+
                 <h2 class="mt-4 text-2xl font-semibold">Responses</h2>
                 {% if respuestas %}
                     <ul class="list-group mt-3">
@@ -20,7 +33,9 @@
                                 <div>
                                     <strong>{{ respuesta.autor.username }}</strong>: {{ respuesta.texto }}
                                 </div>
-                                <a href="{% url 'eliminar-respuesta' respuesta.id %}" class="btn btn-danger btn-sm">Delete</a>
+                                {% if respuesta.autor == user %}
+                                    <a href="{% url 'eliminar-respuesta' respuesta.id %}" class="btn btn-danger btn-sm">Delete</a>
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>
