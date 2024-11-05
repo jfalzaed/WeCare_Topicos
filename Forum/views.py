@@ -10,23 +10,44 @@ def comentarios_view(request):
     comentarios = Comentario.objects.order_by('-fecha_creacion')
     return render(request, 'Forum/comentarios.html', {'comentarios': comentarios})
 
+@login_required(login_url='/login/')
+def like_toggle(request, comentario_id):
+    comentario = get_object_or_404(Comentario, id=comentario_id)
+    like, created = Like.objects.get_or_create(usuario=request.user, comentario=comentario)
+    
+
+    if not created:
+        like.delete() 
+
+    return redirect('detalle-comentario', id=comentario_id)
+
+
 
 def detalle_comentario(request, id):
     try:
         comentario = Comentario.objects.get(id=id)
         respuestas = Respuesta.objects.filter(comentario_id=id)
         es_favorito = False
+        tiene_like = False
 
         if request.user.is_authenticated:
             es_favorito = Favorito.objects.filter(usuario=request.user, comentario=comentario).exists()
+            tiene_like = Like.objects.filter(usuario=request.user, comentario=comentario).exists()
+
+        total_likes = Like.objects.filter(comentario=comentario).count()
+        mensaje_verificacion = total_likes >= 3
 
         return render(request, 'Forum/detalle_comentarios.html', {
             'comentario': comentario, 
             'respuestas': respuestas, 
-            'es_favorito': es_favorito
+            'es_favorito': es_favorito,
+            'tiene_like': tiene_like,
+            'total_likes': total_likes,
+            'mensaje_verificacion': mensaje_verificacion
         })
     except Comentario.DoesNotExist:
         return render(request, 'Forum/comentarios.html', {'mensaje': 'El comentario no existe'})
+
 
 
 @login_required(login_url='/login/')

@@ -1,27 +1,26 @@
-
 .bg-custom-purple {
-    background-color: #ffffff;
-    border: #FFFF;
-  }
-  
+  background-color: #ffffff;
+  border: #FFFF;
+}
 
+
+html,
 body {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   font-family: 'Lato', sans-serif;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
-  margin: 0; 
+  margin: 0;
   height: 100%;
 }
 
 
 
 main {
-  flex-grow: 1; 
+  flex: 1;
   background-color: #BDC0DB;
-  min-height: calc(100vh - 80px);
-  height: 100%;
+  min-height: calc(100vh);
+  min-height: fit-content;
 }
 
 footer {
@@ -30,19 +29,19 @@ footer {
   padding: 20px 0;
   width: 100%;
   text-align: center;
-  margin-top: auto;
-  position: relative; /* Asegura que esté colocado correctamente */
 }
 
 
-section, div, .container {
-  background-color: transparent; 
+section,
+div,
+.container {
+  background-color: transparent;
 }
 
 .list-group-item {
-  background-color: #BDC0DB; 
-  color: #333; 
-  border-color: #6c757d; 
+  background-color: #BDC0DB;
+  color: #333;
+  border-color: #6c757d;
   transition: box-shadow 0.3s;
 }
 
@@ -52,9 +51,9 @@ section, div, .container {
 
 
 .form-control {
-  background-color: #8B74DB; 
-  border: 2px solid #ffffff; 
-  color: #333; 
+  background-color: #8B74DB;
+  border: 2px solid #ffffff;
+  color: #333;
   padding: 10px;
   border-radius: 5px;
   transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -62,13 +61,13 @@ section, div, .container {
 
 
 .form-control:focus {
-  background-color: #747FDC; 
-  border-color: #ffffff; 
-  outline: none; 
+  background-color: #747FDC;
+  border-color: #ffffff;
+  outline: none;
 }
 
 .btn-primary {
-  background-color: #747FDC; 
+  background-color: #747FDC;
   border: none;
   color: white;
   font-size: 16px;
@@ -79,7 +78,7 @@ section, div, .container {
 }
 
 .btn-primary:hover {
-  background-color: #007ffe; 
+  background-color: #007ffe;
   box-shadow: 0 4px 15px rgba(0, 127, 254, 0.5);
   transform: translateY(-2px);
 }
@@ -100,17 +99,19 @@ section, div, .container {
 
 
 .bg-custom-gray {
-  background-color: #BDC0DB; 
+  background-color: #BDC0DB;
 }
 
 
 
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="password"] {
   transition: all 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
-  border-color: #8B74DB; 
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #8B74DB;
   box-shadow: 0 0 8px rgba(139, 116, 219, 0.5);
 }
 
@@ -133,7 +134,9 @@ a:hover {
   color: #007ffe;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"],
+input[type="password"],
+input[type="email"] {
   transition: all 0.3s ease;
   width: 100%;
   padding: 12px 20px;
@@ -144,14 +147,16 @@ input[type="text"], input[type="password"], input[type="email"] {
   box-sizing: border-box;
 }
 
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
-  border-color: #8B74DB; 
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: #8B74DB;
   box-shadow: 0 0 8px rgba(139, 116, 219, 0.5);
 }
 
 
 button[type="submit"] {
-  background-color: #747FDC; 
+  background-color: #747FDC;
   border: none;
   color: white;
   font-size: 16px;
@@ -162,7 +167,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #007ffe; 
+  background-color: #007ffe;
   box-shadow: 0 4px 15px rgba(0, 127, 254, 0.5);
 }
 
@@ -171,21 +176,13 @@ button[type="submit"]:hover {
 }
 
 .navbar-brand img {
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 .btn-ghost:hover {
-  background-color: rgba(255, 255, 255, 0.1); 
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar {
-  font-size: 1.25rem; 
+  font-size: 1.25rem;
 }
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #BDC0DB;
-}
-

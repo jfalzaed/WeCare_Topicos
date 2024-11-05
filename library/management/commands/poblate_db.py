@@ -13,7 +13,7 @@ class Command(BaseCommand):
     help = 'Populate the database with initial data'
 
     def handle(self, *args, **kwargs):
-        json_file_path = r'C:\Users\USUARIO\Desktop\INGENIERA\Cuarto Semestre\Proyecto1\Wecareproject\WeCare\library\management\commands\content.json'
+        json_file_path = r'C:\Users\jhond\projectP1\WeCare\library\management\commands\content.json'
         
         with open(json_file_path, 'r') as file:
             data = json.load(file)

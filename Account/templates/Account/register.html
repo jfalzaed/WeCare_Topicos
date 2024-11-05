@@ -17,17 +17,18 @@
   </div>
 </div>
 
-
 <div class="min-h-[75vh] flex justify-center items-center">
-  <form action="{% url 'register' %}" method="post" class="bg-white p-10 rounded-lg shadow-xl max-w-md w-full transition duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
+  <form action="{% url 'register' %}" method="post"
+    class="bg-white p-10 rounded-lg shadow-xl max-w-md w-full transition duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
     {% csrf_token %}
-    
+
     <div class="space-y-6">
       {{ form.as_p }}
     </div>
 
     <div class="mt-8">
-      <button type="submit" class="w-full py-3 rounded-lg bg-blue-500 text-white font-semibold shadow-lg transition duration-300 ease-in-out hover:bg-blue-600 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300">
+      <button type="submit"
+        class="w-full py-3 rounded-lg bg-blue-500 text-white font-semibold shadow-lg transition duration-300 ease-in-out hover:bg-blue-600 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300">
         Register
       </button>
     </div>

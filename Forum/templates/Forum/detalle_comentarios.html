@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
     <div class="container my-5">
         <div class="text-center mb-5">
             <h1 class="display-4 text-gray-900 font-bold">Comment Details</h1>
@@ -12,7 +11,13 @@
                 <p><strong>Author:</strong> {{ comentario.autor.username }}</p>
                 <p><strong>Comment:</strong> {{ comentario.texto }}</p>
 
-                
+                {% if mensaje_verificacion %}
+                <div class="alert alert-success mt-3" role="alert">
+                    <i class="fas fa-check-circle"></i>  
+                    This post has been useful to several people thanks to the number of likes it has received.                    
+                </div>
+                {% endif %}
+
                 {% if user.is_authenticated %}
                     {% if es_favorito %}
                         <a href="{% url 'marcar-favorito' comentario.id %}" class="btn btn-link w-100 mt-3">
@@ -25,6 +30,20 @@
                     {% endif %}
                 {% endif %}
 
+                <div class="text-center mt-3">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'like-toggle' comentario.id %}" class="btn btn-link w-100 mt-3">
+                            {% if tiene_like %}
+                                <i class="fas fa-thumbs-up text-primary"></i> Unlike
+                            {% else %}
+                                <i class="far fa-thumbs-up text-secondary"></i> Like
+                            {% endif %}
+                        </a>
+                    {% endif %}
+                    <p>{{ total_likes }} Likes</p>
+                </div>
+
+                <!-- Responses Section -->
                 <h2 class="mt-4 text-2xl font-semibold">Responses</h2>
                 {% if respuestas %}
                     <ul class="list-group mt-3">
@@ -43,6 +62,7 @@
                     <p class="mt-3">There are no responses to this comment yet.</p>
                 {% endif %}
 
+                <!-- Response Form -->
                 <form action="{% url 'crear-respuesta' comentario.id %}" method="post" class="mt-4">
                     {% csrf_token %}
                     <div class="form-group">
