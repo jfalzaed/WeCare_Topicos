@@ -3,11 +3,13 @@
 {% block content %}
 <div id="warningModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
     <div class="bg-white rounded-lg p-6 shadow-lg max-w-md mx-auto">
-        <h2 class="text-xl font-bold text-gray-800">Aviso de Responsabilidad</h2>
-        <p class="mt-4 text-gray-600">Si sigues las indicaciones que hay acá, es bajo tu responsabilidad.</p>
+        <h2 class="text-xl font-bold text-gray-800">DISCLAIMER</h2>
+        <p class="mt-4 text-gray-600">We remind you that the postings in this forum are made by people who are not necessarily certified in mental health. If you decide to follow any of the advice presented here, we recommend that you verify its veracity.
+            It is critical that you are aware of the importance of mental health and that you act responsibly when sharing and consuming information on this forum. Your well-being is a priority.
+            </p>
         <div class="flex justify-end mt-6">
-            <a href="{% url 'home' %}" class="btn-secondary">Cancelar</a>
-            <button id="continueButton" class="btn-primary">Continuar</button>
+            <a href="{% url 'home' %}" class="btn-secondary">I dont't agree</a>
+            <button id="continueButton" class="btn-primary">I agree</button>
         </div>
     </div>
 </div>
