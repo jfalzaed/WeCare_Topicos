@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
 class Comentario(models.Model):
     titulo = models.CharField(max_length=255)
     texto = models.TextField()
@@ -10,6 +11,9 @@ class Comentario(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+    
+
 
 
 class Respuesta(models.Model):
@@ -33,6 +37,20 @@ class Favorito(models.Model):
 
     def __str__(self):
         return f'{self.usuario.username} ha marcado como favorito el comentario {self.comentario.titulo}'
+    
+
+class Like(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['usuario', 'comentario'], name='unique_like')
+        ]
+
+    def __str__(self):
+        return f'{self.usuario.username} le dio like a {self.comentario.titulo}'
 
 
 

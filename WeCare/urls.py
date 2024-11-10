@@ -51,6 +51,8 @@ urlpatterns = [
     path('library/', library_views.mental_health_library, name='library'),
     path("statistics/", library_views.search_statistics, name='statistics'),
     path('comentario/favorito/<int:comentario_id>/', Forum_views.favorite, name='marcar-favorito'),
+    path('comentario/<int:comentario_id>/like/', Forum_views.like_toggle, name='like-toggle'),
+    
 
 
 
