@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from .forms import AppointmentForm
 import os.path
 import datetime as dt
@@ -75,34 +76,58 @@ def success_form(request):
 
 
 #function to create a reminder
+@login_required
 def create_reminder(request):
     if request.method == 'POST':
         form = ReminderForm(request.POST)
         if form.is_valid():
             reminder = form.save(commit=False)
+            reminder.user = request.user  # Asigna el usuario autenticado
             reminder.save()
-            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-                return JsonResponse({'success': True})
-            return redirect('create_reminder')
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'errors': form.errors})
     else:
         form = ReminderForm()
     return render(request, 'create_reminder.html', {'form': form})
 
 
 
+@login_required
 def reminder_list(request):
-    reminders = Reminder.objects.filter(reminder_date__gte=timezone.now())  # Only show reminders that are in the future
+    current_time = timezone.now()
+    reminders = Reminder.objects.filter(user=request.user, reminder_date__gte=current_time)
     return render(request, 'reminder_list.html', {'reminders': reminders})
-
-
-"""@login_required
-def reminder_list(request):
-    reminders = Reminder.objects.filter(user=request.user)
-    return render(request, 'reminder_list.html', {'reminders': reminders})"""
     
 
 # Function to get the count of future reminders    
 def get_future_reminders(request):
-    future_reminder_count = Reminder.objects.filter(reminder_date__gte=timezone.now()).count()
+    if request.user.is_authenticated:
+        future_reminder_count = Reminder.objects.filter(
+            user=request.user, 
+            reminder_date__gte=timezone.now()
+        ).count()
+    else:
+        future_reminder_count = 0
+
     return {'future_reminder_count': future_reminder_count}
-    
+
+@login_required
+def edit_reminder(request, reminder_id):
+    reminder = get_object_or_404(Reminder, id=reminder_id, user=request.user)
+    if request.method == 'POST':
+        form = ReminderForm(request.POST, instance=reminder)
+        if form.is_valid():
+            form.save()
+            return redirect('reminder_list')
+    else:
+        form = ReminderForm(instance=reminder)
+    return render(request, 'edit_reminder.html', {'form': form, 'reminder': reminder})
+
+@login_required
+def delete_reminder(request, reminder_id):
+    reminder = get_object_or_404(Reminder, id=reminder_id, user=request.user)
+    if request.method == 'POST':
+        reminder.delete()
+        return HttpResponseRedirect(reverse('reminder_list'))
+    return render(request, 'confirm_delete.html', {'reminder': reminder})

@@ -52,7 +52,8 @@ urlpatterns = [
     path("statistics/", library_views.search_statistics, name='statistics'),
     path('comentario/favorito/<int:comentario_id>/', Forum_views.favorite, name='marcar-favorito'),
     path('comentario/<int:comentario_id>/like/', Forum_views.like_toggle, name='like-toggle'),
-    
+    path('reminder/edit/<int:reminder_id>/', appointment_views.edit_reminder, name='edit_reminder'),
+    path('reminder/delete/<int:reminder_id>/', appointment_views.delete_reminder, name='delete_reminder'),
 
 
 
