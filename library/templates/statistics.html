@@ -3,6 +3,7 @@
 {% block content %}
 
 <div class="container my-5 h-100 d-flex flex-column justify-content-center" style="min-height: 80vh;">
+    <!-- Encabezado -->
     <div class="flex justify-center items-center bg-custom-gray py-12 px-4 sm:px-6 lg:px-8 mb-4 rounded-lg shadow-lg">
         <h1 class="display-4 text-gray-900 font-bold">Searches per Topic</h1>
         {% if mensaje %}
@@ -10,14 +11,20 @@
         {% endif %}
     </div>
 
+    <!-- Gráfico -->
     <div class="row justify-content-center mb-4 flex-grow-1 align-items-center">
         <div class="col-lg-8">
             <div class="bg-white rounded-lg shadow-lg p-4">
-                <img class="img-fluid" src="data:image/png;base64,{{ graphic }}" alt="searches per topic" />
+                {% if graphic %}
+                    <img class="img-fluid" src="data:image/png;base64,{{ graphic }}" alt="searches per topic" />
+                {% else %}
+                    <p class="text-center text-gray-500">No data available</p>
+                {% endif %}
             </div>
         </div>
     </div>
 
+    <!-- Botón de regreso -->
     <div class="text-center mt-4">
         <a href="{% url 'home' %}" class="btn btn-secondary">Return</a>
     </div>
@@ -25,3 +32,4 @@
 </div>
 
 {% endblock content %}
+

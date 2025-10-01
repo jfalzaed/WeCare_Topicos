@@ -18,7 +18,7 @@ class Appointment(models.Model):
     patient_email = models.EmailField()
     patient_phone = models.CharField(max_length=15)
     date_options = [
-        ("2024-09-07T10:35:00-05:00", "September 7 10:35AM"),
+        ("2025-09-25T10:35:00-05:00", "September 25 10:35AM"),
         ("2024-09-08T10:25:00-05:00", "September 8 10:25AM"),
         ("2024-09-09T11:00:00-05:00", "September 9 11AM"),
         ("2024-09-11T09:00:00-05:00", "September 11 9AM"),

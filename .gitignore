@@ -1,3 +1,5 @@
 *.pyc
-/client_secret_158471176816-dc1tg1eho7hbef8ehsu6rgpv7tucnp13.apps.googleusercontent.com.json/*
-/token.json/*
+
+# Archivos sensibles de credenciales
+client_secret_158471176816-dc1tg1eho7hbef8ehsu6rgpv7tucnp13.apps.googleusercontent.com.json
+token.json
