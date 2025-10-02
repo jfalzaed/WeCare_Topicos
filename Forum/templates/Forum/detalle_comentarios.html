@@ -20,11 +20,11 @@
 
                 {% if user.is_authenticated %}
                     {% if es_favorito %}
-                        <a href="{% url 'marcar-favorito' comentario.id %}" class="btn btn-link w-100 mt-3">
+                        <a href="{% url 'Forum:marcar-favorito' comentario.id %}" class="btn btn-link w-100 mt-3">
                             <i class="fas fa-star text-warning"></i> Not Favorite
                         </a>
                     {% else %}
-                        <a href="{% url 'marcar-favorito' comentario.id %}" class="btn btn-link w-100 mt-3">
+                        <a href="{% url 'Forum:marcar-favorito' comentario.id %}" class="btn btn-link w-100 mt-3">
                             <i class="far fa-star text-secondary"></i> Favorite
                         </a>
                     {% endif %}
@@ -32,7 +32,7 @@
 
                 <div class="text-center mt-3">
                     {% if user.is_authenticated %}
-                        <a href="{% url 'like-toggle' comentario.id %}" class="btn btn-link w-100 mt-3">
+                        <a href="{% url 'Forum:like-toggle' comentario.id %}" class="btn btn-link w-100 mt-3">
                             {% if tiene_like %}
                                 <i class="fas fa-thumbs-up text-primary"></i> Unlike
                             {% else %}
@@ -53,7 +53,7 @@
                                     <strong>{{ respuesta.autor.username }}</strong>: {{ respuesta.texto }}
                                 </div>
                                 {% if respuesta.autor == user %}
-                                    <a href="{% url 'eliminar-respuesta' respuesta.id %}" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{% url 'Forum:eliminar-respuesta' respuesta.id %}" class="btn btn-danger btn-sm">Delete</a>
                                 {% endif %}
                             </li>
                         {% endfor %}
@@ -63,7 +63,7 @@
                 {% endif %}
 
                 <!-- Response Form -->
-                <form action="{% url 'crear-respuesta' comentario.id %}" method="post" class="mt-4">
+                <form action="{% url 'Forum:crear-respuesta' comentario.id %}" method="post" class="mt-4">
                     {% csrf_token %}
                     <div class="form-group">
                         <textarea name="texto" class="form-control" rows="3" placeholder="Write your response..." required></textarea>
@@ -71,7 +71,7 @@
                     <button type="submit" class="btn btn-primary w-100">Submit Reply</button>
                 </form>
 
-                <a href="{% url 'comentarios' %}" class="btn btn-secondary w-100 mt-3">Back to Comments</a>
+                <a href="{% url 'Forum:comentarios' %}" class="btn btn-secondary w-100 mt-3">Back to Comments</a>
             </div>
         </div>
     </div>

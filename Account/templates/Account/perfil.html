@@ -17,9 +17,9 @@
                                     <strong>{{ comentario.autor.username }}</strong>: {{ comentario.texto }}
                                 </div>
                                 <div>
-                                    <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-link">Details</a>
-                                    <a href="{% url 'editar-comentario' comentario.id %}" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="{% url 'eliminar-comentario' comentario.id %}" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{% url 'Forum:detalle-comentario' comentario.id %}" class="btn btn-link">Details</a>
+                                    <a href="{% url 'Forum:editar-comentario' comentario.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="{% url 'Forum:eliminar-comentario' comentario.id %}" class="btn btn-danger btn-sm">Delete</a>
                                 </div>
                             </li>
                         {% endfor %}
@@ -41,7 +41,7 @@
                                     <strong>{{ comentario.autor.username }}</strong>: {{ comentario.texto }}
                                 </div>
                                 <div>
-                                    <a href="{% url 'detalle-comentario' comentario.id %}" class="btn btn-link">Details</a>
+                                    <a href="{% url 'Forum:detalle-comentario' comentario.id %}" class="btn btn-link">Details</a>
                                 </div>
                             </li>
                         {% endfor %}
@@ -51,7 +51,7 @@
                 {% endif %}
 
                 <div class="text-center mt-4">
-                    <a href="{% url 'comentarios' %}" class="btn btn-secondary">Return to comments</a>
+                    <a href="{% url 'Forum:comentarios' %}" class="btn btn-secondary">Return to comments</a>
                 </div>
             </div>
         </div>

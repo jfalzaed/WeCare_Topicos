@@ -62,7 +62,7 @@ def form(request):
 
             event = service.events().insert(calendarId=form.cleaned_data['patient_email'], body=event, sendUpdates='all').execute()
             
-            return redirect('success_form')
+            return redirect('appointment:success_form')
         else:
             print(form.errors)
     else:
@@ -119,7 +119,7 @@ def edit_reminder(request, reminder_id):
         form = ReminderForm(request.POST, instance=reminder)
         if form.is_valid():
             form.save()
-            return redirect('reminder_list')
+            return redirect('appointment:reminder_list')
     else:
         form = ReminderForm(instance=reminder)
     return render(request, 'edit_reminder.html', {'form': form, 'reminder': reminder})
@@ -129,5 +129,5 @@ def delete_reminder(request, reminder_id):
     reminder = get_object_or_404(Reminder, id=reminder_id, user=request.user)
     if request.method == 'POST':
         reminder.delete()
-        return HttpResponseRedirect(reverse('reminder_list'))
+        return HttpResponseRedirect(reverse('appointment:reminder_list'))
     return render(request, 'confirm_delete.html', {'reminder': reminder})

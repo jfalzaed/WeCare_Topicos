@@ -18,7 +18,7 @@
 </div>
 
 <div class="min-h-[75vh] flex justify-center items-center">
-  <form action="{% url 'register' %}" method="post"
+  <form action="{% url 'Account:register' %}" method="post"
     class="bg-white p-10 rounded-lg shadow-xl max-w-md w-full transition duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
     {% csrf_token %}
 

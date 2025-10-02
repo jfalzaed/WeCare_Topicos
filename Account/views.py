@@ -33,12 +33,12 @@ def login_view(request):
     user = authenticate(request, username=usuario, password=clave)
     if user is not None:
       login(request, user)
-      return redirect('home')
+      return redirect('Account:home')
     else:
       return render(request, 'Account/login.html', {'mensaje': 'Usuario o clave incorrectos'})
   else:
     if request.user.is_authenticated:
-      return redirect('home')
+      return redirect('Account:home')
     else:
       return render(request, 'Account/login.html')
     
@@ -47,7 +47,7 @@ def register_view(request):
     form = FormCrearUsuario(request.POST)
     if form.is_valid():
       form.save()
-      return redirect('login')
+      return redirect('Account:login')
     else:
       return render(request, 'Account/register.html', {'form': form})
   else:
@@ -57,6 +57,6 @@ def register_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('login') 
-    return redirect('home') 
+        return redirect('Account:login') 
+    return redirect('Account:home') 
 

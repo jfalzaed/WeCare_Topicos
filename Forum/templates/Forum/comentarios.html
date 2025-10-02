@@ -8,7 +8,7 @@
             It is critical that you are aware of the importance of mental health and that you act responsibly when sharing and consuming information on this forum. Your well-being is a priority.
             </p>
         <div class="flex justify-end mt-6">
-            <a href="{% url 'home' %}" class="btn-secondary">I dont't agree</a>
+            <a href="{% url 'Account:home' %}" class="btn-secondary">I dont't agree</a>
             <button id="continueButton" class="btn-primary">I agree</button>
         </div>
     </div>
@@ -24,7 +24,7 @@
 
     <div class="row justify-content-center mb-4">
         <div class="col-lg-6">
-            <form action="{% url 'buscar-comentario' %}" method="post" class="form-inline justify-content-center">
+            <form action="{% url 'Forum:buscar-comentario' %}" method="post" class="form-inline justify-content-center">
                 {% csrf_token %}
                 <input type="text" name="texto" class="form-control mr-2" placeholder="Search comments..." required>
                 <button type="submit" class="btn btn-primary">Search</button>
@@ -42,7 +42,7 @@
                         <h5 class="font-bold text-primary">{{ comentario.autor.username }}</h5>
                         <p class="text-dark">{{ comentario.texto }}</p>
                         <div class="text-right">
-                            <a href="{% url 'detalle-comentario' comentario.id %}"
+                            <a href="{% url 'Forum:detalle-comentario' comentario.id %}"
                                 class="btn btn-primary btn-sm">Details</a>
                         </div>
                     </div>
@@ -56,8 +56,8 @@
     </div>
 
     <div class="text-center mt-4">
-        <a href="{% url 'crear-comentario' %}" class="btn btn-primary mb-2">Create Post</a>
-        <a href="{% url 'home' %}" class="btn btn-secondary">Return</a>
+        <a href="{% url 'Forum:crear-comentario' %}" class="btn btn-primary mb-2">Create Post</a>
+        <a href="{% url 'Account:home' %}" class="btn btn-secondary">Return</a>
     </div>
 </div>
 
