@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% block navbar %}
+  {% with active_link="library" %}
+    {% include 'componets/navbar/nav.html' with active_link=active_link %}
+  {% endwith %}
+{% endblock %}
 {% block content %}
-
 
 <div class="container">
     <div class="row">

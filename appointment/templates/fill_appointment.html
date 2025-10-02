@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% block navbar %}
+  {% with active_link="fill-appointment" %}
+    {% include 'componets/navbar/nav.html' with active_link=active_link %}
+  {% endwith %}
+{% endblock %}
 {% block content %}
 
 <!--This is the html file that displays the form to file an appointment-->

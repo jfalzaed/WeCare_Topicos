@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% block navbar %}
+  {% with active_link="create-reminder" %}
+    {% include 'componets/navbar/nav.html' with active_link=active_link %}
+  {% endwith %}
+{% endblock %}
 {% block content %}
 
 <!-- Flatpickr Styles and Script -->

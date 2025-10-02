@@ -1,5 +1,9 @@
 {% extends "base.html" %}
-
+{% block navbar %}
+  {% with active_link="create-comment" %}
+    {% include 'componets/navbar/nav.html' with active_link=active_link %}
+  {% endwith %}
+{% endblock %}
 {% block content %}
     <div class="container my-5">
         <div class="flex justify-center items-center bg-custom-gray py-12 px-4 sm:px-6 lg:px-8 mb-8 rounded-lg shadow-lg">

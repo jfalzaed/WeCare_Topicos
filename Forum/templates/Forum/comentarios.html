@@ -1,5 +1,9 @@
 {% extends "base.html" %}
-
+{% block navbar %}
+  {% with active_link="comments" %}
+    {% include 'componets/navbar/nav.html' with active_link=active_link %}
+  {% endwith %}
+{% endblock %}
 {% block content %}
 <div id="warningModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
     <div class="bg-white rounded-lg p-6 shadow-lg max-w-md mx-auto">

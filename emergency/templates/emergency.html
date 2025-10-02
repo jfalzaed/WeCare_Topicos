@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% block navbar %}
+  {% with active_link="emergency" %}
+    {% include 'componets/navbar/nav.html' with active_link=active_link %}
+  {% endwith %}
+{% endblock %}
 {% block content %}
     <div class="container my-5">
         <div class="text-center">

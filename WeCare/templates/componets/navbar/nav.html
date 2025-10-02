@@ -8,18 +8,18 @@
           </svg>
         </label>
         <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-custom-purple rounded-box w-64">
-          <li><a class="navbar-brand" href="{% url 'Account:home' %}">About Us</a></li>
-          <li><a class="navbar-brand" href="{% url 'Forum:comentarios' %}">Forum</a></li>
-          <li><a class="navbar-brand" href="{% url 'emergency:emergency' %}">Emergency Lines</a></li>
-          <li><a class="navbar-brand" href="{% url 'library:library' %}">Library</a></li>
-          <li><a class="navbar-brand" href="{% url 'library:statistics' %}">Statistics</a></li>
+          <li><a class="navbar-brand{% if active_link == 'about' %} active{% endif %}" href="{% url 'Account:home' %}">About Us</a></li>
+          <li><a class="navbar-brand{% if active_link == 'comments' %} active{% endif %}" href="{% url 'Forum:comentarios' %}">Forum</a></li>
+          <li><a class="navbar-brand{% if active_link == 'emergency' %} active{% endif %}" href="{% url 'emergency:emergency' %}">Emergency Lines</a></li>
+          <li><a class="navbar-brand{% if active_link == 'library' %} active{% endif %}" href="{% url 'library:library' %}">Library</a></li>
+          <li><a class="navbar-brand{% if active_link == 'statistics' %} active{% endif %}" href="{% url 'library:statistics' %}">Statistics</a></li>
           {% if user.is_authenticated %}
-          <li><a class="navbar-brand" href="{% url 'Forum:crear-comentario' %}">Create a Publication</a></li>
-          <li><a class="navbar-brand" href="{% url 'appointment:fill_appointment' %}">Request an Appointment</a></li>
-          <li><a class="navbar-brand" href="{% url 'appointment:create_reminder' %}">Create a Reminder</a></li>
+          <li><a class="navbar-brand{% if active_link == 'create-comment' %} active{% endif %}" href="{% url 'Forum:crear-comentario' %}">Create a Publication</a></li>
+          <li><a class="navbar-brand{% if active_link == 'fill-appointment' %} active{% endif %}" href="{% url 'appointment:fill_appointment' %}">Request an Appointment</a></li>
+          <li><a class="navbar-brand{% if active_link == 'create-reminder' %} active{% endif %}" href="{% url 'appointment:create_reminder' %}">Create a Reminder</a></li>
           {% else %}
-          <li><a class="navbar-brand" href="{% url 'Account:login' %}">Login</a></li>
-          <li><a class="navbar-brand" href="{% url 'Account:register' %}">Register</a></li>
+          <li><a class="navbar-brand{% if active_link == 'login' %} active{% endif %}" href="{% url 'Account:login' %}">Login</a></li>
+          <li><a class="navbar-brand{% if active_link == 'register' %} active{% endif %}" href="{% url 'Account:register' %}">Register</a></li>
           {% endif %}
         </ul>
       </div>

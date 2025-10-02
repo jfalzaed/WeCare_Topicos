@@ -18,8 +18,7 @@
 </head>
 <body>
 
-  {% include 'componets/navbar/nav.html' %}
-
+  {% block navbar %}{% endblock %}
   <main class="flex-grow-1">
   {% block content %}{% endblock %}
   </main>
